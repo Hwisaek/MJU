@@ -15,37 +15,39 @@
         $result = $connect->query($query);
         //아이디가 있다면 비밀번호 검사
         if(mysqli_num_rows($result)==1) {
-            //입력받은 데이터를 DB에 저장
-            $query = "insert into member (id, pw, name,mail, date, permit,mouth,eye) values ('$id', '$pw','$name', '$email', '$date', 0,'$mouth','$eye')";
-            $result = $connect->query($query);
-            if($result) {
-                ?>
-                <html>
-                    <body>
-		            var get = getParameter("id")
-                    <form name=form action="./upload_test.php" method="POST">
-                    <input type = hidden value = <?php echo $id;?> name = id>
-                    </form>
-                    </body>
-                </html>
-                <script>
-                    document.form.submit();
-                </script>
-                <?php
-            } else {
-                ?>
-                <script>
-                    alert("fail");
-                </script>
-                <?php
-            }
-        mysqli_close($connect);
+        ?>
+                    <script>
+                        alert("아이디가 중복됩니다.");
+                        history.back();
+                    </script>
+                    <?php
+
         } else {
-            ?>
-            <script>
-                alert("아이디가 중복됩니다.");
-                history.back();
-            </script>
-            <?php
+
+             //입력받은 데이터를 DB에 저장
+                        $query = "insert into member (id, pw, name,mail, date, permit,mouth,eye) values ('$id', '$pw','$name', '$email', '$date', 0,'$mouth','$eye')";
+                        $result = $connect->query($query);
+                        if($result) {
+                            ?>
+                            <html>
+                                <body>
+            		            var get = getParameter("id")
+                                <form name=form action="./upload_test.php" method="POST">
+                                <input type = hidden value = <?php echo $id;?> name = id>
+                                </form>
+                                </body>
+                            </html>
+                            <script>
+                                document.form.submit();
+                            </script>
+                            <?php
+                        } else {
+                            ?>
+                            <script>
+                                alert("fail");
+                            </script>
+                            <?php
+                        }
+                    mysqli_close($connect);
         }
 ?>
