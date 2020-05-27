@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab7</title>
+    <style>
+        #redbox {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            background-color: red;
+        }
+        #bluebox {
+            width: 100px;
+            height: 100px;
+            right: 0px;
+            position: absolute;
+            border: 1px solid blue;
+        }
+    </style>
+    <script>
+        window.onload= function() {
+        var redbox = document.getElementById('redbox');
+        var bluebox = document.getElementById('bluebox');
+        var redbox_x = 0, redbox_y = 0;
+        var bluebox_x = 0, bluebox_y = 0;
+        setInterval(function() {
+            if(redbox_x == 1000){
+                redbox_x = 0;
+                redbox_y = 0;
+                bluebox_x = 0;
+                bluebox_y = 0;
+            }
+            redbox_x += 1;
+            redbox_y += 1;
+            bluebox_x += 1;
+            bluebox_y += 1;
+            redbox.style.left = redbox_x + 'px';
+            redbox.style.top = redbox_y + 'px';
+            bluebox.style.right = bluebox_x + 'px';
+            bluebox.style.top = bluebox_y + 'px';
+            }, 5);
+    };
+    </script>
+</head>
+<body>
+<div id ="redbox"></div>
+<div id ="bluebox"></div>
+</body>
+</html>

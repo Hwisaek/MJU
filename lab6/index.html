@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script>
+        primitive1 = Math.floor(Math.random()*1000);
+        primitive2 = Math.floor(Math.random()*1000);
+        Num1 = new Number(Math.floor(Math.random()*1000));
+        Num2 = new Number(Math.floor(Math.random()*1000));
+        Number.prototype.plus = function(a){
+            return this.valueOf() + a;
+        }
+        Number.prototype.multiply = function(a){
+            return this.valueOf() * a;
+        }
+        var output = '';
+        output += 'P1:' + primitive1 + '<br>';
+        output += 'P2:' + primitive2 + '<br>';
+        output += 'N1:' + Num1 + '<br>';
+        output += 'N2:' + Num2 + '<br><br><br>';
+        output +=  '(P1)' + primitive1 + '+ (P2) ' + primitive2 + '=' + primitive1.plus(primitive2) + '<br>';
+        output +=  '(P1)' + primitive1 + '+ (N2) ' + Num2 + '=' + primitive1.plus(Num2) + '<br>';
+        output +=  '(N1)' + Num1 +'+ (P2) ' + Num2 + '=' + Num1.plus(Num2) + '<br><br><br>';
+        output +=  '(P1)' + primitive1 + '* (P2) ' + primitive2 + '=' + primitive1.multiply(primitive2) + '<br>';
+        output +=  '(P1)' + primitive1 + '* (N2) ' + Num2 + '=' + primitive1.multiply(Num2) + '<br>';
+        output +=  '(N1)' + Num1 +'* (P2) ' + Num2 + '=' + Num1.multiply(Num2);
+        document.write(output);
+    </script>
+</body>
+</html>

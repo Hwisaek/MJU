@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="utf-8">
+    <script>
+        function makeSquare(width, height){
+            var willReturn = {
+                width : width,
+                height : height,
+
+                getArea: function(){
+                    return  'Area:' + this.height + '* ' + this.width +'= '+ this.width*this.height;
+                },
+                getCircumstance: function(){
+                    return 'Circumstance' + this.height + '+ ' + this.width+'= ' + (this.width*2+this.height*2);
+                }
+            };
+            return willReturn;
+        }
+        var square = [];
+
+        square.push(makeSquare(100,200));
+        square.push(makeSquare(50,50));
+        square.push(makeSquare(45,100));
+        var output = 'Area and Circumstance\n';
+        for(var i in square){
+            output += '\n' + square[i].getArea() + '\n' + square[i].getCircumstance() + '\n';
+        }
+        alert(output);
+
+    </script>
+
+</head>
+</html>

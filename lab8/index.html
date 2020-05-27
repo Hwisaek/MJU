@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        window.onload = function() {
+            // 변수를 선언합니다.
+            var header1 = document.getElementById('header1');
+            var header2 = document.getElementById('header2');
+            var header3 = document.getElementById('header3');
+            var header4 = document.getElementById('header4');
+            var header5 = document.getElementById('header5');
+
+            header1.onclick= function () {
+                    this.style.color = "RED";
+            };
+            header2.onclick= function () {
+                this.style.color = "BLUE";
+            }
+            header3.onclick=  function () {
+                this.style.border = "SOLID green";
+            }
+            header4.onclick= function () {
+                header5.innerText = Number(header5.innerText)+1;
+            }
+        };
+    </script>
+</head>
+<body>
+    <h1 id="header1">Lab9</h1>
+    <h1 id="header2">Hello world Web Programming</h1>
+    <h1 id="header3">Student</h1>
+    <h1 id="header4">Changmin Lee</h1>
+    <h1 id="header5">0</h1>
+</body>
+</html>
