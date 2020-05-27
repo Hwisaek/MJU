@@ -1,0 +1,7 @@
+0.6
+2019.2
+Nov  6 2019
+21:57:16
+C:/Vivado/middle_exam/middle_exam.sim/sim_1/behav/xsim/glbl.v,1573089660,verilog,,,,glbl,,,,,,,,
+C:/Vivado/middle_exam/middle_exam.srcs/sim_1/new/stimulus.v,1588870577,verilog,,,,stimulus,,,,,,,,
+C:/Vivado/middle_exam/middle_exam.srcs/sources_1/new/my_ripple_counter.v,1588870960,verilog,,C:/Vivado/middle_exam/middle_exam.srcs/sim_1/new/stimulus.v,,T_FF;counter_init;edge_dff;my_register;my_ripple_counter;ripple_counter,,,,,,,,
