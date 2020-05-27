@@ -11,7 +11,5 @@
             echo $python;
             }
 
-dddfasd
-
 ?>
 
