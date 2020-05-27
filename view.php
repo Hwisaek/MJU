@@ -98,8 +98,6 @@
     <td class="view_hit">조회수</td>
     <td class="view_hit2"><?php echo $rows['hit']?></td>
   </tr>
-
-
   <tr>
     <td colspan="4" class="view_content" valign="top">
       <?php echo $rows['content']?></td>
