@@ -10,7 +10,5 @@
         else{
             echo $python;
             }
-
-123124
 ?>
 
