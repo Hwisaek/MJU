@@ -9,6 +9,5 @@
             }
         else{
             echo $python;
-            }12121212
+            }
 ?>
-
