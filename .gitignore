@@ -1,0 +1,12 @@
+
+.idea/deployment.xml
+.idea/htdocs.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+__pycache__/camera.cpython-36.pyc
+__pycache__/camera.cpython-35.pyc
+__pycache__/camera.cpython-37.pyc
+__pycache__/face_recog.cpython-36.pyc
+__pycache__/face_recog.cpython-37.pyc
+knowns/

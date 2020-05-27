@@ -66,6 +66,10 @@ while True :
             cv2.putText(image, "blinking", (50, 50), font, 2, (255, 0, 0))
             print("blinking")
             blink +=1
+        f = open("count_blink.txt", 'w')
+        data = "{}".format(blink)
+        f.write(data)
+        f.close()
    
    
     cv2.imshow("Frame", image)
