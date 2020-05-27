@@ -43,7 +43,7 @@
                 if(isset($_SESSION['userid'])) {
                           ?>            <button onclick="location.href='./logout.php'">로그아웃</button>
                           <?php
-                                        echo $_SESSION['userid'];?>님 안녕하세요
+                                        echo $_SESSION['userid'];?>님 안녕
                                         <br/>
                         <?php
                                 }
