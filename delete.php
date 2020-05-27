@@ -2,7 +2,7 @@
     $number = $_GET['number'];
     echo $number;
     $connect = mysqli_connect("localhost", "root", "", "facerecog");
-    $query = "delete from facerecog.board where number =$number";
+$query = "delete from facerecog.board where number =$number";
     $result = $connect->query($query);
 ?>
 
