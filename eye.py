@@ -67,7 +67,7 @@ while True:
             print("blinking")
             blink += 1
         f = open("count_blink.txt", 'w')
-        data = "{}".format(blink)
+        data = "blinking: {}".format(blink)
         f.write(data)
         f.close()
 
