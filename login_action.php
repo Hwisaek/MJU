@@ -21,7 +21,7 @@
           alert("얼굴인식 시작하겠습니다.");
           // 얼굴인식 시작 시 test.html 새창 띄우기
           // 해당 코드 얼굴인식 -> 눈, 입 감지 전으로 이동해야함
-          var win = window.open("/test.html", "PopupWin", "width=500,height=600");
+          var win = window.open("/read_count.html", "PopupWin", "width=500,height=600");
           location.replace("./login_action2.php");
         </script>
         <?php
