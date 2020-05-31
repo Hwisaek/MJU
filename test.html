@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <script type="text/javascript">
+        timer = setInterval(function(){
+            $( "#new-nav" ).load( "count_blink.txt" );
+        } , 100);
+        setTimeout(function() {
+            window.close();
+        }, 4000);
+    </script>
+</head>
+<body>
+<b>Content</b>
+<ol id="new-nav"></ol>
+</body>
+</html>

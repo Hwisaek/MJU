@@ -1,28 +1,6 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <title>testbranch</title>
-</head>
-
-<body>
-  <script>
-    function readTextFile(file) {
-      var rawFile = new XMLHttpRequest();
-      rawFile.open("GET", file, false);
-      rawFile.onreadystatechange = function() {
-        if (rawFile.readyState === 4) {
-          if (rawFile.status === 200 || rawFile.status == 0) {
-            var allText = rawFile.responseText;
-            alert(allText);
-          } else {}
-        }
-      }
-      rawFile.send(null);
+<?php
+    $myfilename = "count_blink.txt";
+    if(file_exists($myfilename)){
+        echo file_get_contents($myfilename);
     }
-
-    readTextFile("file:///F:/web/Apache24/htdocs/count_blink.txt");
-  </script>
-</body>
-
-</html>
+?>

@@ -19,6 +19,7 @@
         ?>
         <script>
           alert("얼굴인식 시작하겠습니다.");
+          var win = window.open("/test.html", "PopupWin", "width=500,height=600");
           location.replace("./login_action2.php");
         </script>
         <?php
