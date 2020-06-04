@@ -1,12 +1,12 @@
-# 눈깜빡임 감지 코드
-import cv2
+# eye.py
 import dlib
 from math import hypot
 import time
 
 # face detector 와 landmark predictor 정의
 detector = dlib.get_frontal_face_detector()
-predictor = dlib.shape_predictor("./shape_predictor_68_face_landmarks.dat")  # 얼굴의 특징을 68개의 점을 이용하여 인식
+predictor = dlib.shape_predictor(
+    "./shape_predictor_68_face_landmarks.dat")  # 얼굴의 특징을 68개의 점을 이용하여 인식
 font = cv2.FONT_HERSHEY_SIMPLEX  # 폰트 지정
 r_eye_points = [42, 43, 44, 45, 46, 47]  # 우측 눈의 점 좌표
 l_eye_points = [36, 37, 38, 39, 40, 41]  # 좌측 눈의 점 좌표
@@ -20,19 +20,27 @@ def midpoint(p1, p2):
 
 
 def get_blinking_ratio(eye_points, facial_landmarks):
-    left_point = (facial_landmarks.part(eye_points[0]).x, facial_landmarks.part(eye_points[0]).y)  # 눈의 최좌측 좌표
-    right_point = (facial_landmarks.part(eye_points[3]).x, facial_landmarks.part(eye_points[3]).y)  # 눈의 최우측 좌표
-    center_top = midpoint(facial_landmarks.part(eye_points[1]), facial_landmarks.part(eye_points[2]))  # 눈의 최상단 좌표
-    center_bottom = midpoint(facial_landmarks.part(eye_points[5]), facial_landmarks.part(eye_points[4]))  # 눈의 최하단 좌표
+    left_point = (facial_landmarks.part(
+        eye_points[0]).x, facial_landmarks.part(eye_points[0]).y)  # 눈의 최좌측 좌표
+    right_point = (facial_landmarks.part(
+        eye_points[3]).x, facial_landmarks.part(eye_points[3]).y)  # 눈의 최우측 좌표
+    center_top = midpoint(facial_landmarks.part(
+        eye_points[1]), facial_landmarks.part(eye_points[2]))  # 눈의 최상단 좌표
+    center_bottom = midpoint(facial_landmarks.part(
+        eye_points[5]), facial_landmarks.part(eye_points[4]))  # 눈의 최하단 좌표
 
     # cv2.line(선분이 그려질 이미지, 선분의 시작점(x,y), 선분의 끝점(x,y), 선분의 색(B,G,R), 선 굵기(기본 1))
-    hor_line = cv2.line(image, left_point, right_point, (0, 255, 0), 2)  # 윈도우에 눈의 가로 선 생성
-    ver_line = cv2.line(image, center_top, center_bottom, (0, 255, 0), 2)  # 윈도우에 눈의 세로 선 생성
+    hor_line = cv2.line(image, left_point, right_point,
+                        (0, 255, 0), 2)  # 윈도우에 눈의 가로 선 생성
+    ver_line = cv2.line(image, center_top, center_bottom,
+                        (0, 255, 0), 2)  # 윈도우에 눈의 세로 선 생성
 
     # hypot(x, y) 는 x^2 + y^2 = z^2 를 계산하여 z 값을 반환함
     # 즉 피타고라스 방정식을 이용하여 그려질 선의 길이 계산
-    hor_line_lenght = hypot((left_point[0] - right_point[0]), (left_point[1] - right_point[1]))  # 눈의 가로 선 길이
-    ver_line_lenght = hypot((center_top[0] - center_bottom[0]), (center_top[1] - center_bottom[1]))  # 눈의 세로 선 길이
+    hor_line_lenght = hypot(
+        (left_point[0] - right_point[0]), (left_point[1] - right_point[1]))  # 눈의 가로 선 길이
+    ver_line_lenght = hypot(
+        (center_top[0] - center_bottom[0]), (center_top[1] - center_bottom[1]))  # 눈의 세로 선 길이
 
     # 눈의 가로 세로 비율
     # 가로/세로 이므로 눈을 감을수록 값이 커짐
@@ -68,7 +76,8 @@ while True:
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
     # 몇 번 깜빡였는지 출력
-    cv2.putText(image, "blinking :" + str(blink), (50, 50), font, 2, (255, 0, 0))
+    cv2.putText(image, "blinking :" + str(blink),
+                (50, 50), font, 2, (255, 0, 0))
 
     # 흑백으로 변환된 이미지를 detector함수의 인자로 넣어서 faces에 반환 값을 저장
     # 이게 무슨 소리인지 이해를 못 했으므로 주석을 다시 달아야 합니다. ^^
@@ -78,8 +87,10 @@ while True:
         # 흑백으로 변환된 이미지를 이용해 얼굴의 점 좌표를 반환
         landmarks = predictor(gray, face)
 
-        left_eye_ratio = get_blinking_ratio(l_eye_points, landmarks)  # 좌측 눈 비율 계산
-        right_eye_ratio = get_blinking_ratio(r_eye_points, landmarks)  # 우측 눈 비율 계산
+        left_eye_ratio = get_blinking_ratio(
+            l_eye_points, landmarks)  # 좌측 눈 비율 계산
+        right_eye_ratio = get_blinking_ratio(
+            r_eye_points, landmarks)  # 우측 눈 비율 계산
 
         # 어느 한 쪽의 눈이라도 가로 길이가 세로 길이의 7.5배가 넘어가게 되면 눈을 감은 것으로 인식하여 코드 실행
         if left_eye_ratio >= 7.5 or right_eye_ratio >= 7.5:

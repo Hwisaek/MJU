@@ -1,7 +1,5 @@
 # camera.py
-
 import cv2
-
 
 class VideoCamera(object):
     def __init__(self):
@@ -49,6 +47,5 @@ if __name__ == '__main__':
 
     # 생성한 모든 윈도우 제거
     cv2.destroyAllWindows()
-
 
     print('finish')

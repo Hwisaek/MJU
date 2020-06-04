@@ -1,5 +1,4 @@
 # face_recog.py
-
 import face_recognition
 import cv2
 import camera
@@ -9,19 +8,14 @@ import dlib
 from math import hypot
 import time
 
-
 class FaceRecog():
     def __init__(self):
-        # Using OpenCV to capture from device 0. If you have trouble capturing
-        # from a webcam, comment the line below out and use a video file
-        # instead.
         # 객체 생성
         self.camera = camera.VideoCamera()
 
         self.known_face_encodings = []
         self.known_face_names = []
 
-        # Load sample pictures and learn how to recognize it.
         # knowns 에서 사진파일을 읽고 인식하여 특징 추출
         dirname = 'knowns'
         files = os.listdir(dirname)
