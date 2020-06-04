@@ -11,10 +11,8 @@ mouth_points = [48, 49, 50, 51, 52, 53, 54, 55,
 
 
 count_mouth_open = 0
-
-
-def midpoint(p1, p2):
-    return int((p1.x + p2.x) / 2), int((p1.y + p2.y) / 2)
+def midpoint(p1, p2): 
+    return int((p1.x + p2.x)/2), int((p1.y + p2.y)/2)
 
 
 def get_mouth_pen_ratio(mouth_points, facial_landmarks):
@@ -41,13 +39,12 @@ def get_mouth_pen_ratio(mouth_points, facial_landmarks):
         ratio = 60
     return ratio
 
-
 capture = cv2.VideoCapture(0)
 capture.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
 capture.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
-# 프레임의 너비와 높이의 속성 설정
-i = 0
-while True:
+#프레임의 너비와 높이의 속성 설정
+i=0
+while True :
     _, image = capture.read()
 
     # convert frame to gray
@@ -57,30 +54,35 @@ while True:
 
     for face in faces:
         landmarks = predictor(gray, face)
-
+        
         mouths = get_mouth_pen_ratio(
             mouth_points, landmarks)
 
         if mouths <= 5.0:
             count_mouth_open += 1
+        
+
+      
 
     cv2.putText(image, "Mouth open: " + str(count_mouth_open),
                 (50, 50), font, 2, (255, 0, 0))
-
+   
+   
     cv2.imshow("Frame", image)
     key = cv2.waitKey(1) & 0xFF
-    i += 1
-    f = open("count_mouth.txt", 'w')
-    data = "mouth: {}".format(count_mouth_open)
-    f.write(data)
-    f.close()
+    i+=1
 
-    # if the `q` key was pressed, break from the loop
+        # if the `q` key was pressed, break from the loop
     if key == ord("q"):
-        break
-    if i > 125:
+         break
+    if i>125:
+        
         print(str(count_mouth_open))
+        
         break
+   
 
 
 cv2.destroyAllWindows()
+
+

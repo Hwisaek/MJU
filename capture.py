@@ -3,7 +3,6 @@
 import cv2
 import os
 
-
 class VideoCamera(object):
     def __init__(self):
         # Using OpenCV to capture from device 0. If you have trouble capturing
@@ -28,14 +27,14 @@ if __name__ == '__main__':
     path = os.path.dirname(__file__)
     filename = "recognizeface.jpg"
     fullpath = os.path.join(path, filename)
-    i = 0
+    i=0
     while True:
         frame = cam.get_frame()
         cv2.imshow("Frame", frame)
-        if i == 3:
+        if i==3:
             cv2.imwrite(fullpath, frame)
             break
-        i += 1
+        i+=1
 
     # do a bit of cleanup
     cv2.destroyAllWindows()

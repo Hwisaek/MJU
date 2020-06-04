@@ -44,7 +44,6 @@ capture.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
 capture.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 #프레임의 너비와 높이의 속성 설정
 i=0
-j=0
 blink =0
 while True :
     _, image = capture.read()
@@ -53,51 +52,38 @@ while True :
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
     faces = detector(gray)
-    
 
     for face in faces:
         landmarks = predictor(gray, face)
        
+
+
         left_eye_ratio = get_blinking_ratio(
             l_eye_poits, landmarks)
         right_eye_ratio = get_blinking_ratio(
             r_eye_points, landmarks)
-
+        blinking_ratio = (left_eye_ratio + right_eye_ratio) / 2
         
-        if left_eye_ratio >= 4.5 or right_eye_ratio >= 4.5:
-            if j ==0:
-                cv2.putText(image, "blinking", (50, 50), font, 2, (255, 0, 0))
-                print("blinking")
-                blink +=1
-                j+=1
-                
-            
-        if j != 0:
-            j +=1
-        if j == 10:
-            j=0
-            
-                
-                
-                
-            
-        
+        if left_eye_ratio >= 7.0 or right_eye_ratio >= 7.0:
+            cv2.putText(image, "blinking", (50, 50), font, 2, (255, 0, 0))
+            print("blinking")
+            blink +=1
+   
    
     cv2.imshow("Frame", image)
     key = cv2.waitKey(1) & 0xFF
     i+=1
-    
 
         # if the `q` key was pressed, break from the loop
     if key == ord("q"):
          break
-    if i>100:
-        print(str(blink))
+    if i>150:
+        print("blinking: " + str(blink)+"\n")
         
         break
    
 
 
 cv2.destroyAllWindows()
-
+print('finish')
 
