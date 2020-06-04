@@ -24,19 +24,25 @@ class VideoCamera(object):
         return frame
 
 if __name__ == '__main__':
+    # cam 객체 생성
     cam = VideoCamera()
     path = os.path.dirname(__file__)
-    filename = "recognizeface.jpg" # 캡쳐한 화면을 recognizeface.jpg 로 저장
+    filename = "recognizeface.jpg" # 캡쳐한 화면을 저장할 이름
     fullpath = os.path.join(path, filename)
 
     i = 0
     while True:
+        # cam 으로부터 frame을 가져옴
         frame = cam.get_frame()
+
+        # 받아온 frame을 화면에 표시
         cv2.imshow("Frame", frame)
         if i == 3: # DroidCam 등으로 연결된 카메라의 경우 로딩시간으로 인해 3으로 설정해야 촬영 가능
+            # 캡쳐한 이미지(frame)을 해당 경로(fullpath)에 저장
             cv2.imwrite(fullpath, frame)
             break
         i += 1
-    # do a bit of cleanup
+
+    # 생성한 모든 윈도우 제거
     cv2.destroyAllWindows()
     print('finish')

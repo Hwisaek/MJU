@@ -5,6 +5,7 @@ from math import hypot
 import time
 start = time.time()  # 시작 시간 저장
 
+# Returns the default face detector
 detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor("./shape_predictor_68_face_landmarks.dat")
 font = cv2.FONT_HERSHEY_SIMPLEX
