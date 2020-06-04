@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-mouth: 55
-=======
-mouth: 39
->>>>>>> ab0e10586ab38407465cd4f78d782de1c2d6d8d1
+mouth: 49
