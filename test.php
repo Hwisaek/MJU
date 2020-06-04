@@ -1,6 +1,7 @@
 <?php
-    $myfilename = "count_blink.txt";
-    if(file_exists($myfilename)){
-        echo file_get_contents($myfilename);
-    }
+$file = 'knowns/test2.jpg';
+$type = 'image/jpeg';
+header('Content-Type:'.$type);
+header('Content-Length: ' . filesize($file));
+readfile($file);
 ?>

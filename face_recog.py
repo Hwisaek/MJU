@@ -27,6 +27,7 @@ class FaceRecog():
                 pathname = os.path.join(dirname, filename)
                 img = face_recognition.load_image_file(pathname)
                 face_encoding = face_recognition.face_encodings(img)[0]
+                encodings = face_recognition.face_encodings(img)
                 self.known_face_encodings.append(face_encoding)
 
         # Initialize some variables
@@ -106,6 +107,7 @@ class FaceRecog():
 if __name__ == '__main__':
     face_recog = FaceRecog()
     print(face_recog.known_face_names)
+    i=0
     while True:
         frame = face_recog.get_frame()
 
@@ -113,8 +115,9 @@ if __name__ == '__main__':
         cv2.imshow("Frame", frame)
         key = cv2.waitKey(1) & 0xFF
 
+        i += 1
         # if the `q` key was pressed, break from the loop
-        if key == ord("q"):
+        if key == ord("q") or i>10:
             break
 
     # do a bit of cleanup
