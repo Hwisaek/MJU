@@ -64,7 +64,7 @@ while True :
             r_eye_points, landmarks)
 
         
-        if left_eye_ratio >= 4.5 or right_eye_ratio >= 4.5:
+        if left_eye_ratio >= 7.5 or right_eye_ratio >= 7.5:
             if j ==0:
                 cv2.putText(image, "blinking", (50, 50), font, 2, (255, 0, 0))
                 print("blinking")

@@ -3,7 +3,7 @@
     $python = `python eye.py`;
     echo $python;
 
-    if(strpos($python,$_SESSION['eye'])==true){
+    if($python==($_SESSION['eye'])) {
     ?>      <script>
 
                 alert("최종 로그인 성공");
