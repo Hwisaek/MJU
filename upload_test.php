@@ -3,8 +3,8 @@
 $id=$_POST[id];
 echo "id:".$id;
 $jpg=$id.'.jpg';
-$python = `capture.py`;
-$filename=rename("recognizeface.jpg","C:/web/Apache24/htdocs/knowns/".$jpg);
+$python = `python capture.py`;
+$filename=rename("recognizeface.jpg","F:/web/Apache24/htdocs/knowns/".$jpg);
 
 if($filename){
         echo "<br>jpgname:".$id."<br>사진 찍기 완료";
