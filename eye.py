@@ -86,7 +86,11 @@ while True :
     cv2.imshow("Frame", image)
     key = cv2.waitKey(1) & 0xFF
     i+=1
-    
+
+    f = open("count_blink.txt", 'w')
+    data = "blinking: {}".format(blink)
+    f.write(data)
+    f.close()
 
         # if the `q` key was pressed, break from the loop
     if key == ord("q"):

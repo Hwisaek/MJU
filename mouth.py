@@ -72,6 +72,11 @@ while True :
     key = cv2.waitKey(1) & 0xFF
     i+=1
 
+    f = open("count_mouth.txt", 'w')
+    data = "mouth: {}".format(count_mouth_open)
+    f.write(data)
+    f.close()
+    
         # if the `q` key was pressed, break from the loop
     if key == ord("q"):
          break

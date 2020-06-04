@@ -1,10 +1,7 @@
 <?php
     session_start();
-    $python = `eye.py`;
+    $python = `python eye.py`;
     echo $python;
-  // <script>
-  //   var win = window.open("/read_count.html", "PopupWin", "width=500,height=600");
-  // </script>
 
     if(strpos($python,$_SESSION['eye'])==true){
     ?>      <script>
