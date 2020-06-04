@@ -1,16 +1,16 @@
+<!-- 눈 깜빡임 감지 -->
 <?php
   session_start();
   $python = `python eye.py`;
   echo $python;
-
-  if(strpos($python,$_SESSION['eye'])==true) {
+  if (strpos($python,$_SESSION['eye'])==true) { // DB에 저장된 눈 깜빡임 횟수와 일치하면 로그인
     ?>
     <script>
-      alert("최종 로그인 성공");
-      location.replace("./index.php");
+    alert("최종 로그인 성공");
+    location.replace("./index.php");
     </script>
     <?php
-  }else{
+  } else {
     ?>
     <script>
       alert("로그인 실패");

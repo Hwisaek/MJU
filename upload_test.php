@@ -1,19 +1,22 @@
 <?php
+  // php 에러 출력 안하기
+  error_reporting(0);
 
-$id=$_POST[id];
-echo "id:".$id;
-$jpg=$id.'.jpg';
-$python = `capture.py`;
-$filename=rename("recognizeface.jpg","C:/web/Apache24/htdocs/knowns/".$jpg);
+  $id=$_POST[id];
+  echo "id:".$id;
+  $jpg=$id.'.jpg';
+  $python = `python capture.py`;
+  $filename=rename("recognizeface.jpg", "F:/web/Apache24/htdocs/knowns/".$jpg);
 
-if($filename){
-        echo "<br>jpgname:".$id."<br>사진 찍기 완료";
-    }else{
-        echo "사진 찍기 실패";
-    }
+  // 개발용 echo
+  if ($filename) {
+    echo "<br>jpgname:".$id."<br>사진 찍기 완료";
+  } else {
+    echo "사진 찍기 실패";
+  }
 ?>
 <html>
-<body>
+  <body>
   <br>
   <img src="knowns/<?php echo $id;?>.jpg">
   <br>

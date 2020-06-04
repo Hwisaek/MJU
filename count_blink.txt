@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 blinking: 0
+=======
+blinking: 1
+>>>>>>> ab0e10586ab38407465cd4f78d782de1c2d6d8d1
