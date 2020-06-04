@@ -3,7 +3,7 @@
     $python = `mouth.py`;
 ?>
 
-    var win = window.open("/read_count1.html", "PopupWin", "width=500,height=600");
+
 
 <?php
 
