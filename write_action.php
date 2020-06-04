@@ -3,9 +3,9 @@
   $connect = mysqli_connect("localhost", "root", "", "facerecog") or die("fail");
 
   // write.php로부터 값을 받아옴
-  $id = $_GET[name];                      //Writer
-  $title = $_GET[title];                  //Title
-  $content = $_GET[content];              //Content
+  $id = $_POST[name];                      //Writer
+  $title = $_POST[title];                  //Title
+  $content = $_POST[content];              //Content
   $date = date('Y-m-d H:i:s');            //Date
   $URL = './index.php';                   //return URL
 

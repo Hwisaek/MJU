@@ -14,7 +14,7 @@
     }
   ?>
 
-  <form method="get" action="write_action.php">
+  <form method="POST" action="write_action.php">
     <table style="padding-top:50px" align=center width=700 border=0 cellpadding=2>
       <tr>
         <td height=20 align=center bgcolor=#ccc>
