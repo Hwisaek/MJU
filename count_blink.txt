@@ -1,1 +1,1 @@
-blinking: 4
+blinking: 0

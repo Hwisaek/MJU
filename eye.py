@@ -70,7 +70,6 @@ while True:
     for face in faces:
         landmarks = predictor(gray, face)
 
-
         left_eye_ratio = get_blinking_ratio(l_eye_points, landmarks) # 좌측 눈 비율 계산
         right_eye_ratio = get_blinking_ratio(r_eye_points, landmarks) # 우측 눈 비율 계산
 
