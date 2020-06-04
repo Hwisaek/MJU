@@ -1,10 +1,10 @@
 <!DOCTYPE>
- 
+
 <html>
 <head>
         <meta charset='utf-8'>
 </head>
- 
+
 <body>
         <body background = "good.png">
 
@@ -13,8 +13,8 @@
         <?php session_start();
         $result = session_destroy();
         ?>
- 
-        <form method='get' action='login_action.php'>
+
+        <form method='POST' action='login_action.php'>
 
                 <p>ID: <input name="id" type="text"></p>
                 <p>PW: <input name="pw" type="password"></p>
@@ -22,11 +22,10 @@
         </form>
         <br />
         <button id="join" onclick="location.href='./join.php'">회원가입</button>
- 
-        </div>
- 
- 
-</body>
- 
-</html>
 
+        </div>
+
+
+</body>
+
+</html>
