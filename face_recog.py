@@ -5,8 +5,8 @@ import cv2
 import camera
 import os
 import numpy as np
-import dlib
-from math import hypot
+
+
 class FaceRecog():
     def __init__(self):
         # Using OpenCV to capture from device 0. If you have trouble capturing
@@ -27,6 +27,7 @@ class FaceRecog():
                 pathname = os.path.join(dirname, filename)
                 img = face_recognition.load_image_file(pathname)
                 face_encoding = face_recognition.face_encodings(img)[0]
+                encodings = face_recognition.face_encodings(img)
                 self.known_face_encodings.append(face_encoding)
 
         # Initialize some variables
@@ -51,13 +52,16 @@ class FaceRecog():
         # Only process every other frame of video to save time
         if self.process_this_frame:
             # Find all the faces and face encodings in the current frame of video
-            self.face_locations = face_recognition.face_locations(rgb_small_frame)
-            self.face_encodings = face_recognition.face_encodings(rgb_small_frame, self.face_locations)
+            self.face_locations = face_recognition.face_locations(
+                rgb_small_frame)
+            self.face_encodings = face_recognition.face_encodings(
+                rgb_small_frame, self.face_locations)
 
             self.face_names = []
             for face_encoding in self.face_encodings:
                 # See if the face is a match for the known face(s)
-                distances = face_recognition.face_distance(self.known_face_encodings, face_encoding)
+                distances = face_recognition.face_distance(
+                    self.known_face_encodings, face_encoding)
                 min_value = min(distances)
 
                 # tolerance: How much distance between faces to consider it a match. Lower is more strict.
@@ -66,8 +70,6 @@ class FaceRecog():
                 if min_value < 0.6:
                     index = np.argmin(distances)
                     name = self.known_face_names[index]
-                    print(name)
-                    break;
 
                 self.face_names.append(name)
 
@@ -85,10 +87,11 @@ class FaceRecog():
             cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)
 
             # Draw a label with a name below the face
-            cv2.rectangle(frame, (left, bottom - 35), (right, bottom), (0, 0, 255), cv2.FILLED)
+            cv2.rectangle(frame, (left, bottom - 35),
+                          (right, bottom), (0, 0, 255), cv2.FILLED)
             font = cv2.FONT_HERSHEY_DUPLEX
-            cv2.putText(frame, name, (left + 6, bottom - 6), font, 1.0, (255, 255, 255), 1)
-##            
+            cv2.putText(frame, name, (left + 6, bottom - 6),
+                        font, 1.0, (255, 255, 255), 1)
 
         return frame
 
@@ -103,25 +106,20 @@ class FaceRecog():
 
 if __name__ == '__main__':
     face_recog = FaceRecog()
-    
+    print(face_recog.known_face_names)
     i=0
     while True:
         frame = face_recog.get_frame()
-        i+=1
 
         # show the frame
         cv2.imshow("Frame", frame)
         key = cv2.waitKey(1) & 0xFF
 
+        i += 1
         # if the `q` key was pressed, break from the loop
-        if key == ord("q"):
-            break
-        if i>10:
-            
+        if key == ord("q") or i>10:
             break
 
     # do a bit of cleanup
     cv2.destroyAllWindows()
-    
-
-
+    print('finish')

@@ -1,32 +1,23 @@
 <!DOCTYPE>
- 
 <html>
+
 <head>
-        <meta charset='utf-8'>
+  <meta charset='utf-8'>
 </head>
- 
+
 <body>
-        <body background = "good.png">
+  <div align='center'>
+    <span>로그인</span>
 
-        <div align='center'>
-        <span>로그인</span>
-        <?php session_start();
-        $result = session_destroy();
-        ?>
- 
-        <form method='get' action='login_action.php'>
+    <form method='get' action='login_action.php'>
+      <p>ID: <input name="id" type="text"></p>
+      <p>PW: <input name="pw" type="password"></p>
+      <input type="submit" value="로그인">
+    </form>
+    <br />
+    <button id="join" onclick="location.href='./join.php'">회원가입</button>
 
-                <p>ID: <input name="id" type="text"></p>
-                <p>PW: <input name="pw" type="password"></p>
-                <input type="submit" value="로그인">
-        </form>
-        <br />
-        <button id="join" onclick="location.href='./join.php'">회원가입</button>
- 
-        </div>
- 
- 
+  </div>
 </body>
- 
-</html>
 
+</html>
