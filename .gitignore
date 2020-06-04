@@ -7,6 +7,8 @@
 __pycache__/
 .idea/
 knowns/
+count_mouth.txt
+count_blink.txt
 *.py[cod]
 *$py.class
 

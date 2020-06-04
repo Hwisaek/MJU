@@ -1,9 +1,8 @@
-
-
 import cv2
 import dlib
-
 from math import hypot
+import time
+start = time.time()  # 시작 시간 저장
 
 
 detector = dlib.get_frontal_face_detector()
@@ -67,7 +66,7 @@ while True :
         if left_eye_ratio >= 7.5 or right_eye_ratio >= 7.5:
             if j ==0:
                 cv2.putText(image, "blinking", (50, 50), font, 2, (255, 0, 0))
-                print("blinking")
+##                print("blinking")
                 blink +=1
                 j+=1
                 
@@ -93,12 +92,12 @@ while True :
     f.close()
 
         # if the `q` key was pressed, break from the loop
-    if key == ord("q"):
-         break
-    if i>100:
+    if (key == ord("q")) or (time.time()-start)>=10:
         print(str(blink))
-        
         break
+##    if i>100:
+##        print(str(blink))
+##        break
    
 
 

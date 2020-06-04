@@ -1,7 +1,8 @@
 import cv2
 import dlib
 from math import hypot
-
+import time
+start = time.time()  # 시작 시간 저장
 
 detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor("./shape_predictor_68_face_landmarks.dat")
@@ -78,15 +79,12 @@ while True :
     f.close()
     
         # if the `q` key was pressed, break from the loop
-    if key == ord("q"):
-         break
-    if i>125:
-        
+    if (key == ord("q")) or (time.time()-start)>=10 :
         print(str(count_mouth_open))
-        
         break
+##    if i>125:
+##        break
    
-
 
 cv2.destroyAllWindows()
 
