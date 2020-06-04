@@ -1,11 +1,13 @@
 <?php
     session_start();
     $python = `mouth.py`;
-?>
 
+<<<<<<< HEAD
 
+=======
+    // var win = window.open("/read_count1.html", "PopupWin", "width=500,height=600");
+>>>>>>> fce6f3e270709750d2228be142c78b1fa2420c32
 
-<?php
 
 
     if($python>($_SESSION['mouth']*23-15)&& $python<($_SESSION['mouth']*23+15)){
