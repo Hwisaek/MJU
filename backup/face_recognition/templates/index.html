@@ -1,0 +1,30 @@
+<html>
+<head>
+<meta charset="utf8">
+<title>Webcam Live</title>
+</head>
+<body>
+<video autoplay></video>
+<script type="text/javascript">
+window.URL = window.URL || window.webkitURL;
+navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia ||
+        navigator.mozGetUserMedia || navigator.msGetUserMedia;
+
+var video = document.querySelector('video');
+
+function fallback(e) {
+    console.log("Fallback here: ", e);
+}
+
+function success(stream) {
+    video.src = window.URL.createObjectURL(stream);
+}
+
+if (!navigator.getUserMedia) {
+    fallback();
+} else {
+    navigator.getUserMedia({video: true}, success, fallback);
+}
+</script>
+</body>
+</html>
