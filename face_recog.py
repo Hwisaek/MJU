@@ -22,6 +22,7 @@ class FaceRecog():
         self.known_face_names = []
 
         # Load sample pictures and learn how to recognize it.
+        # knowns 에서 사진파일을 읽고 인식하여 특징 추출
         dirname = 'knowns'
         files = os.listdir(dirname)
         for filename in files:

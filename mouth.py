@@ -6,10 +6,10 @@ import time
 
 # face detector 와 landmark predictor 정의
 detector = dlib.get_frontal_face_detector()
-predictor = dlib.shape_predictor("./shape_predictor_68_face_landmarks.dat")
+predictor = dlib.shape_predictor("./shape_predictor_68_face_landmarks.dat") # 얼굴의 특징을 68개의 점을 이용하여 인식
 font = cv2.FONT_HERSHEY_SIMPLEX  # 폰트 지정
-mouth_points = [48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67]
-count_mouth_open = 0
+mouth_points = [48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67] # 입의 점 좌표
+
 
 
 # 중간 지점을 계산하는 함수
@@ -42,6 +42,7 @@ def get_mouth_pen_ratio(mouth_points, facial_landmarks):
         ratio = 60
     return ratio
 
+count_mouth_open = 0 # 변수 초기화
 
 # 내장 카메라로 비디오 캡쳐
 capture = cv2.VideoCapture(0)
