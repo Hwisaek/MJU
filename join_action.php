@@ -6,13 +6,13 @@
   $connect = mysqli_connect("localhost", "root", "", "facerecog") or die("fail");
 
   // 회원가입 페이지로부터 값 받아오기
-  $id=$_GET[id];
-  $pw=$_GET[pw];
-  $email=$_GET[email];
-  $name=$_GET[name];
-  $userfile = $_get[userfile];
-  $mouth = $_GET[mouth];
-  $eye = $_GET[eye];
+  $id=$_POST[id];
+  $pw=$_POST[pw];
+  $email=$_POST[email];
+  $name=$_POST[name];
+  $userfile = $_POST[userfile];
+  $mouth = $_POST[mouth];
+  $eye = $_POST[eye];
   $date = date('Y-m-d H:i:s');
 
   // id 중복 검사용

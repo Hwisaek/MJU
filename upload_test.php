@@ -3,14 +3,14 @@
   error_reporting(0);
 
   $id=$_POST[id];
-  echo "id:".$id;
+  // echo "id:".$id;
   $jpg=$id.'.jpg';
   $python = `python capture.py`;
   $filename=rename("recognizeface.jpg", "F:/web/Apache24/htdocs/knowns/".$jpg);
 
   // 개발용 echo
   if ($filename) {
-    echo "<br>jpgname:".$id."<br>사진 찍기 완료";
+    // echo "<br>jpgname:".$id."<br>사진 찍기 완료";
   } else {
     echo "사진 찍기 실패";
   }
