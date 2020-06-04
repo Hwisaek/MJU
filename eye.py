@@ -16,7 +16,6 @@ l_eye_points = [36, 37, 38, 39, 40, 41]
 def midpoint(p1, p2):
     return int((p1.x + p2.x) / 2), int((p1.y + p2.y) / 2)
 
-
 # 눈의 가로세로 비율 측정 함수
 def get_blinking_ratio(eye_points, facial_landmarks):
     left_point = (facial_landmarks.part(eye_points[0]).x, facial_landmarks.part(eye_points[0]).y) # 눈의 최좌측 좌표
@@ -35,14 +34,16 @@ def get_blinking_ratio(eye_points, facial_landmarks):
 
     # 눈의 가로 세로 비율
     # 가로/세로 이므로 눈을 감을수록 값이 커짐
-    ratio = hor_line_lenght / ver_line_lenght
+    # 인식 오류로 세로 길이가 0이 되는 경우 계산 에러 방지
+    if ver_line_lenght != 0:
+        ratio = hor_line_lenght / ver_line_lenght
+    else:
+        ratio = 60
     return ratio
 
 
 # 내장 카메라로 비디오 캡쳐
 capture = cv2.VideoCapture(0)
-
-start = time.time()  # 시작 시간 저장
 
 # 프레임의 너비와 높이의 속성 설정
 # cv2.CAP_PROP_FRAME_WIDTH : 프레임의 너비 속성
@@ -52,6 +53,8 @@ capture.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 
 j = 0  # 현재 눈 상태 설정 0이면 뜬 상태, 1이면 감은 상태
 blink = 0  # 깜빡임 횟수
+
+start = time.time()  # 시작 시간 저장
 
 while True:
     # 재생되는 비디오의 한 프레임 씩 읽어서 두 개의 값 반환
@@ -65,6 +68,8 @@ while True:
     # 몇 번 깜빡였는지 출력
     cv2.putText(image, "blinking :" + str(blink), (50, 50), font, 2, (255, 0, 0))
 
+    # 흑백으로 변환된 이미지를 detector함수의 인자로 넣어서 faces에 반환 값을 저장
+    # 이게 무슨 소리인지 이해를 못 했으므로 주석을 다시 달아야 합니다. ^^ 
     faces = detector(gray)
 
     for face in faces:

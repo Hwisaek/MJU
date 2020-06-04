@@ -15,6 +15,7 @@ class FaceRecog():
         # Using OpenCV to capture from device 0. If you have trouble capturing
         # from a webcam, comment the line below out and use a video file
         # instead.
+        # 객체 생성
         self.camera = camera.VideoCamera()
 
         self.known_face_encodings = []
@@ -27,31 +28,34 @@ class FaceRecog():
             name, ext = os.path.splitext(filename)
             if ext == '.jpg':
                 self.known_face_names.append(name)
+                # knowns 디렉토리에서 사진 파일을 읽어와서 사람 이름을 추출
                 pathname = os.path.join(dirname, filename)
                 img = face_recognition.load_image_file(pathname)
-                face_encoding = face_recognition.face_encodings(img)[0]
+                face_encoding = face_recognition.face_encodings(img)[0]  # 특징 추출
+                # 사진에서 얼굴 특징의 데이터를 분석한 데이터를 self.known_face_encodings 에 저장
                 self.known_face_encodings.append(face_encoding)
 
-        # Initialize some variables
+        # 변수 초기화
         self.face_locations = []
         self.face_encodings = []
         self.face_names = []
         self.process_this_frame = True
 
+    # 소멸자
     def __del__(self):
         del self.camera
 
     def get_frame(self):
-        # Grab a single frame of video
+        # 영상으로부터 프레임을 가져옴
         frame = self.camera.get_frame()
 
-        # Resize frame of video to 1/4 size for faster face recognition processing
+        # 계산 양을 줄이기 위해 frame의 크기를 1/4로 줄임
         small_frame = cv2.resize(frame, (0, 0), fx=0.25, fy=0.25)
 
-        # Convert the image from BGR color (which OpenCV uses) to RGB color (which face_recognition uses)
+        # OpenCV 에서 사용하는 BGR 색에서 face_recognition 에서 사용하는 RGB로 이미지를 변환
         rgb_small_frame = small_frame[:, :, ::-1]
 
-        # Only process every other frame of video to save time
+        # 계산 양을 줄이기 위해 두 프레임당 1번씩 계산
         if self.process_this_frame:
             # Find all the faces and face encodings in the current frame of video
             self.face_locations = face_recognition.face_locations(
@@ -61,36 +65,38 @@ class FaceRecog():
 
             self.face_names = []
             for face_encoding in self.face_encodings:
-                # See if the face is a match for the known face(s)
+                # Frame에서 추출한 얼굴 특징과 knowns에 있는 얼굴 사진과 비교하여
+                # 얼마나 비슷한지 거리 척도로 환산(작을수록 비슷한 얼굴)
                 distances = face_recognition.face_distance(
                     self.known_face_encodings, face_encoding)
                 min_value = min(distances)
 
-                # tolerance: How much distance between faces to consider it a match. Lower is more strict.
-                # 0.6 is typical best performance.
+                # 0.6 이상은 다른 사람의 얼굴
+                # 인식이 잘 안되면 min_value의 범위 조절 (0.6이 최적)
                 name = "Unknown"
                 if min_value < 0.6:
                     index = np.argmin(distances)
                     name = self.known_face_names[index]
-                    print(name) # 인식된 이름 출력
+                    print(name)  # 인식된 이름 출력
                     break
 
                 self.face_names.append(name)
 
+        # 두 프레임당 1번씩 계산하기 위해 변수 값 전환
         self.process_this_frame = not self.process_this_frame
 
-        # Display the results
+        # 결과 출력
         for (top, right, bottom, left), name in zip(self.face_locations, self.face_names):
-            # Scale back up face locations since the frame we detected in was scaled to 1/4 size
+            # 1/4배로 만들었던 frame을 다시 원래 크기로 키움
             top *= 4
             right *= 4
             bottom *= 4
             left *= 4
 
-            # Draw a box around the face
+            # 인식된 얼굴 주위에 네모박스 생성
             cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)
 
-            # Draw a label with a name below the face
+            # 인식된 얼굴 아래에 이름 생성
             cv2.rectangle(frame, (left, bottom - 35),
                           (right, bottom), (0, 0, 255), cv2.FILLED)
             font = cv2.FONT_HERSHEY_DUPLEX
@@ -100,10 +106,11 @@ class FaceRecog():
         return frame
 
     def get_jpg_bytes(self):
+        # 비디오 프레임 가져오기
         frame = self.get_frame()
-        # We are using Motion JPEG, but OpenCV defaults to capture raw images,
-        # so we must encode it into JPEG in order to correctly display the
-        # video stream.
+
+        # OpenCV 에서는 기본적으로 raw 이미지를 사용하므로, 영상 송출을 위해
+        # Motion JPEG로 인코딩 하는 함수
         ret, jpg = cv2.imencode('.jpg', frame)
         return jpg.tobytes()
 
@@ -113,13 +120,15 @@ if __name__ == '__main__':
     start = time.time()  # 시작 시간 저장
 
     while True:
+        # 객체 생성
         frame = face_recog.get_frame()
 
-        # show the frame
+        # 윈도우에 frame 출력
         cv2.imshow("Frame", frame)
         key = cv2.waitKey(1) & 0xFF
 
-        if (key == ord("q")) or (time.time() - start) >= 5:  # q를 누르거나 3초 지나면 종료
+        if (key == ord("q")) or (time.time() - start) >= 5:  # q를 누르거나 5초 지나면 종료
             break
-    # do a bit of cleanup
+
+    # 생성한 윈도우 창 제거
     cv2.destroyAllWindows()
