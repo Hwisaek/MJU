@@ -5,8 +5,8 @@
   $id=$_POST[id];
   // echo "id:".$id;
   $jpg=$id.'.jpg';
-  $python = `python capture.py`;
-  $filename=rename("recognizeface.jpg", "F:/web/Apache24/htdocs/knowns/".$jpg);
+  $python = `capture.py`;
+  $filename=rename("recognizeface.jpg", "C:/web/Apache24/htdocs/knowns/".$jpg);
 
   // 개발용 echo
   if ($filename) {
