@@ -27,8 +27,7 @@ module myCPU(haddr, hwdata, inst_in);
 output haddr, hwdata;
 input [0:15] inst_in;
 wire [0:3] op, r1, r2, r3;
-reg [0:15] R;
-
+reg [0:3] R[0:15];
 endmodule
 
 module inst(op, r1, r2, r3, inst_in);
@@ -43,21 +42,42 @@ module PC(haddr);
 output haddr;
 endmodule
 
-module ALU(hwdata);
-output hwdata;
+module ALU(hwdata, op, r1, r2, R);
+output reg [0:3] hwdata;
+input [0:3] op, r1, r2;
+input [0:3] R[0:15];
+
+
+always @(op)
+begin
+    case (op)
+        4'd0 : hwdata = R[r1] + R[r2];
+        4'd1 : hwdata = R[r1] + R[r2];
+        4'd2 : hwdata = R[r1] + R[r2];
+        4'd3 : hwdata = R[r1] + R[r2];
+
+    endcase
+end
 endmodule
 
 module stimulus;
-wire [0:3] op, r1, r2, r3;
-reg [0:15] inst_in;
-inst tets(op, r1, r2, r3, inst_in);
+wire [0:3] hwdata;
+reg [0:3]  r1, r2, op, R[0:15];
+
+
+ALU test(hwdata, op, r1, r2, R);
 
 initial
     begin
-        inst_in = 16'b0001001001001000;
+        op = 4'b0000;
+        R[0] = 4'd0;
+        R[1] = 4'd1;
+        R[2] = 4'd2;
+        R[3] = 4'd3;
+        R[4] = 4'd4;
     end
-
+    
 initial
-    $monitor($time, "op = %b, r1 = %b, r2 = %b, r3 = %b",op, r1, r2, r3); 
+    $monitor($time, "R[0] = %b, R[1] = %b, R[2] = %b, R[3] = %b",R[0], R[1], R[2], R[3]); 
     
 endmodule
