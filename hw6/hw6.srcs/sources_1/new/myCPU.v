@@ -23,61 +23,95 @@ PC값이 나오면 그 값을 확인해서 스티뮬러스 코드에서 CPU에 명령값을 할당함
 그 결과 값을 레지스터에 저장을 함.
 */
 
-module myCPU(haddr, hwdata, inst_in);
-output haddr, hwdata;
+module myCPU(haddr, hwdata, inst_in, clock);
+output haddr;
+output [0:15] hwdata;
 input [0:15] inst_in;
+input clock;
 wire [0:3] op, r1, r2, r3;
-reg [0:3] R[0:15];
+reg [0:15] R[0:15];
+
+initial
+    begin
+        R[0] <= 0; R[1] <= 1; R[2] <= 2;
+        R[3] <= 3; R[4] <= 4; R[5] <= 5;
+        R[6] <= 6; R[7] <= 7; R[8] <= 8;
+        R[9] <= 9; R[10] <= 10; R[11] <= 11;
+        R[12] <= 12; R[13] <= 13; R[14] <= 14; 
+        R[15] <= 15;
+    end
+
+inst inst_CPU(op, r1, r2, r3, inst_in, clock);
+PC PC_CPU(haddr, clock);
+ALU ALU_CPU(hwdata, op, r1, r2, r3, R[0:15], clock);
+
+always @ (posedge clock)
+    #1 R[r3] <= hwdata;
+
 endmodule
 
-module inst(op, r1, r2, r3, inst_in);
+module inst(op, r1, r2, r3, inst_in, clock);
 output [0:3] op, r1, r2, r3;
 input [0:15] inst_in;
+input clock;
 
 assign {op, r1, r2, r3} = inst_in;
 
 endmodule
 
-module PC(haddr);
-output haddr;
+module PC(haddr, clock);
+output reg [0:7] haddr;
+input clock;
+
+initial
+    haddr = 0;
+    
+always @ (posedge clock)
+    haddr += 1;
+
 endmodule
 
-module ALU(hwdata, op, r1, r2, R);
-output reg [0:3] hwdata;
-input [0:3] op, r1, r2;
-input [0:3] R[0:15];
 
+module ALU(hwdata, op, r1, r2, r3, R[0:15], clock);
+output reg [0:15] hwdata;
+input [0:3] op, r1, r2, r3;
+input [0:15] R[0:15];
+input clock;
 
-always @(op)
-begin
-    case (op)
-        4'd0 : hwdata = R[r1] + R[r2];
-        4'd1 : hwdata = R[r1] + R[r2];
-        4'd2 : hwdata = R[r1] + R[r2];
-        4'd3 : hwdata = R[r1] + R[r2];
-
-    endcase
-end
+always @(posedge clock)
+    begin
+        case (op)
+            4'd0 : hwdata = R[r1] + R[r2];
+            4'd1 : hwdata = R[r1] - R[r2];
+            4'd2 : hwdata = R[r1] & R[r2];
+            4'd3 : hwdata = R[r1] | R[r2];
+        endcase
+    end
+    
 endmodule
+
 
 module stimulus;
-wire [0:3] hwdata;
-reg [0:3]  r1, r2, op, R[0:15];
+wire [0:15] hwdata;
+wire [0:3] haddr;
+reg [0:15] inst_in;
+reg clock;
 
-
-ALU test(hwdata, op, r1, r2, R);
+myCPU test(haddr, hwdata, inst_in, clock);
 
 initial
     begin
-        op = 4'b0000;
-        R[0] = 4'd0;
-        R[1] = 4'd1;
-        R[2] = 4'd2;
-        R[3] = 4'd3;
-        R[4] = 4'd4;
+        clock = 0;
+        forever #10 clock = ~clock;
     end
-    
+
 initial
-    $monitor($time, "R[0] = %b, R[1] = %b, R[2] = %b, R[3] = %b",R[0], R[1], R[2], R[3]); 
-    
+    begin
+        inst_in = 0;
+        #10 inst_in = 16'h0124;
+        #60 inst_in = 16'h1316;
+        #60 inst_in = 16'h2F38;
+        #60 inst_in = 16'h310A;
+    end
+
 endmodule

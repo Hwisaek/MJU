@@ -2,8 +2,8 @@
 # Vivado v2019.2 (64-bit)
 # SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
 # IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
-# Start of session at: Sat Jun  6 01:33:23 2020
-# Process ID: 8488
+# Start of session at: Sun Jun  7 04:10:18 2020
+# Process ID: 12804
 # Current directory: C:/Vivado/hw6/hw6.runs/synth_1
 # Command line: vivado.exe -log stimulus.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source stimulus.tcl
 # Log file: C:/Vivado/hw6/hw6.runs/synth_1/stimulus.vds
@@ -15,26 +15,249 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a50ti'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a50ti'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 9344 
-WARNING: [Synth 8-2539] port R must not be declared to be an array [C:/Vivado/hw6/hw6.srcs/sources_1/new/myCPU.v:48]
+INFO: Helper process launched with PID 28924 
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 512.484 ; gain = 219.520
+Starting Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 505.723 ; gain = 207.582
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'stimulus' [C:/Vivado/hw6/hw6.srcs/sources_1/new/myCPU.v:63]
-INFO: [Synth 8-6157] synthesizing module 'ALU' [C:/Vivado/hw6/hw6.srcs/sources_1/new/myCPU.v:45]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Vivado/hw6/hw6.srcs/sources_1/new/myCPU.v:53]
-WARNING: [Synth 8-567] referenced signal 'R' should be on the sensitivity list [C:/Vivado/hw6/hw6.srcs/sources_1/new/myCPU.v:51]
-WARNING: [Synth 8-567] referenced signal 'r1' should be on the sensitivity list [C:/Vivado/hw6/hw6.srcs/sources_1/new/myCPU.v:51]
-WARNING: [Synth 8-567] referenced signal 'r2' should be on the sensitivity list [C:/Vivado/hw6/hw6.srcs/sources_1/new/myCPU.v:51]
-INFO: [Synth 8-6155] done synthesizing module 'ALU' (1#1) [C:/Vivado/hw6/hw6.srcs/sources_1/new/myCPU.v:45]
-ERROR: [Synth 8-659] type mismatch in port association: bit [0:3]A[0:15] vs. bit [0:3]B [C:/Vivado/hw6/hw6.srcs/sources_1/new/myCPU.v:67]
-ERROR: [Synth 8-6156] failed synthesizing module 'stimulus' [C:/Vivado/hw6/hw6.srcs/sources_1/new/myCPU.v:63]
+INFO: [Synth 8-6157] synthesizing module 'stimulus' [C:/Vivado/hw6/hw6.srcs/sources_1/new/myCPU.v:94]
+WARNING: [Synth 8-6896] loop limit (65536) exceeded inside initial block, initial block items will be ignored [C:/Vivado/hw6/hw6.srcs/sources_1/new/myCPU.v:105]
+INFO: [Synth 8-6157] synthesizing module 'myCPU' [C:/Vivado/hw6/hw6.srcs/sources_1/new/myCPU.v:26]
+INFO: [Synth 8-6157] synthesizing module 'inst' [C:/Vivado/hw6/hw6.srcs/sources_1/new/myCPU.v:53]
+INFO: [Synth 8-6155] done synthesizing module 'inst' (1#1) [C:/Vivado/hw6/hw6.srcs/sources_1/new/myCPU.v:53]
+INFO: [Synth 8-6157] synthesizing module 'PC' [C:/Vivado/hw6/hw6.srcs/sources_1/new/myCPU.v:62]
+INFO: [Synth 8-6155] done synthesizing module 'PC' (2#1) [C:/Vivado/hw6/hw6.srcs/sources_1/new/myCPU.v:62]
+WARNING: [Synth 8-689] width (1) of port connection 'haddr' does not match port width (8) of module 'PC' [C:/Vivado/hw6/hw6.srcs/sources_1/new/myCPU.v:45]
+INFO: [Synth 8-6157] synthesizing module 'ALU' [C:/Vivado/hw6/hw6.srcs/sources_1/new/myCPU.v:75]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Vivado/hw6/hw6.srcs/sources_1/new/myCPU.v:83]
+INFO: [Synth 8-6155] done synthesizing module 'ALU' (3#1) [C:/Vivado/hw6/hw6.srcs/sources_1/new/myCPU.v:75]
+WARNING: [Synth 8-6014] Unused sequential element R_reg was removed. 
+INFO: [Synth 8-6155] done synthesizing module 'myCPU' (4#1) [C:/Vivado/hw6/hw6.srcs/sources_1/new/myCPU.v:26]
+WARNING: [Synth 8-689] width (4) of port connection 'haddr' does not match port width (1) of module 'myCPU' [C:/Vivado/hw6/hw6.srcs/sources_1/new/myCPU.v:100]
+INFO: [Synth 8-6155] done synthesizing module 'stimulus' (5#1) [C:/Vivado/hw6/hw6.srcs/sources_1/new/myCPU.v:94]
+WARNING: [Synth 8-3331] design ALU has unconnected port r3[0]
+WARNING: [Synth 8-3331] design ALU has unconnected port r3[1]
+WARNING: [Synth 8-3331] design ALU has unconnected port r3[2]
+WARNING: [Synth 8-3331] design ALU has unconnected port r3[3]
+WARNING: [Synth 8-3331] design inst has unconnected port clock
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 558.645 ; gain = 265.680
+Finished Synthesize : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 592.512 ; gain = 294.371
 ---------------------------------------------------------------------------------
-synthesize failed
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 592.512 ; gain = 294.371
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a50ticsg325-1L
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 592.512 ; gain = 294.371
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a50ticsg325-1L
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Vivado/hw6/hw6.srcs/sources_1/new/myCPU.v:83]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 592.512 ; gain = 294.371
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     16 Bit       Adders := 1     
+	   2 Input      8 Bit       Adders := 1     
++---Registers : 
+	               16 Bit    Registers := 1     
+	                8 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 1     
+	   4 Input     16 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module PC 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      8 Bit       Adders := 1     
++---Registers : 
+	                8 Bit    Registers := 1     
+Module ALU 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     16 Bit       Adders := 1     
++---Registers : 
+	               16 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 1     
+	   4 Input     16 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 120 (col length:60)
+BRAMs: 150 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 724.188 ; gain = 426.047
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 724.188 ; gain = 426.047
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 724.188 ; gain = 426.047
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 724.188 ; gain = 426.047
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 724.188 ; gain = 426.047
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 724.188 ; gain = 426.047
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 724.188 ; gain = 426.047
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 724.188 ; gain = 426.047
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 724.188 ; gain = 426.047
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++-+-----+------+
+| |Cell |Count |
++-+-----+------+
++-+-----+------+
+
+Report Instance Areas: 
++------+---------+-------+------+
+|      |Instance |Module |Cells |
++------+---------+-------+------+
+|1     |top      |       |     0|
++------+---------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 724.188 ; gain = 426.047
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 9 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 724.188 ; gain = 426.047
+Synthesis Optimization Complete : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 724.188 ; gain = 426.047
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 724.188 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 826.551 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
 INFO: [Common 17-83] Releasing license: Synthesis
-6 Infos, 4 Warnings, 0 Critical Warnings and 3 Errors encountered.
-synth_design failed
-ERROR: [Common 17-69] Command failed: Vivado Synthesis failed
-INFO: [Common 17-206] Exiting Vivado at Sat Jun  6 01:33:30 2020...
+19 Infos, 9 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 826.551 ; gain = 528.410
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 826.551 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'C:/Vivado/hw6/hw6.runs/synth_1/stimulus.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file stimulus_utilization_synth.rpt -pb stimulus_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sun Jun  7 04:10:40 2020...

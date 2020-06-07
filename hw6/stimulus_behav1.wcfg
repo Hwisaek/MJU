@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="stimulus_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="stimulus" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="258801fs"></ZoomEndTime>
+      <Cursor1Time time="33971fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="175"></NameColumnWidth>
+      <ValueColumnWidth column_width="130"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="20" />
+   <wvobject fp_name="/stimulus/clock" type="logic">
+      <obj_property name="ElementShortName">clock</obj_property>
+      <obj_property name="ObjectShortName">clock</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stimulus/hwdata" type="array">
+      <obj_property name="ElementShortName">hwdata[0:15]</obj_property>
+      <obj_property name="ObjectShortName">hwdata[0:15]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stimulus/haddr" type="array">
+      <obj_property name="ElementShortName">haddr[0:3]</obj_property>
+      <obj_property name="ObjectShortName">haddr[0:3]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stimulus/inst_in" type="array">
+      <obj_property name="ElementShortName">inst_in[0:15]</obj_property>
+      <obj_property name="ObjectShortName">inst_in[0:15]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stimulus/test/R[0]" type="array">
+      <obj_property name="ElementShortName">[0][0:15]</obj_property>
+      <obj_property name="ObjectShortName">[0][0:15]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stimulus/test/R[1]" type="array">
+      <obj_property name="ElementShortName">[1][0:15]</obj_property>
+      <obj_property name="ObjectShortName">[1][0:15]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stimulus/test/R[2]" type="array">
+      <obj_property name="ElementShortName">[2][0:15]</obj_property>
+      <obj_property name="ObjectShortName">[2][0:15]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stimulus/test/R[3]" type="array">
+      <obj_property name="ElementShortName">[3][0:15]</obj_property>
+      <obj_property name="ObjectShortName">[3][0:15]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stimulus/test/R[4]" type="array">
+      <obj_property name="ElementShortName">[4][0:15]</obj_property>
+      <obj_property name="ObjectShortName">[4][0:15]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stimulus/test/R[5]" type="array">
+      <obj_property name="ElementShortName">[5][0:15]</obj_property>
+      <obj_property name="ObjectShortName">[5][0:15]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stimulus/test/R[6]" type="array">
+      <obj_property name="ElementShortName">[6][0:15]</obj_property>
+      <obj_property name="ObjectShortName">[6][0:15]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stimulus/test/R[7]" type="array">
+      <obj_property name="ElementShortName">[7][0:15]</obj_property>
+      <obj_property name="ObjectShortName">[7][0:15]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stimulus/test/R[8]" type="array">
+      <obj_property name="ElementShortName">[8][0:15]</obj_property>
+      <obj_property name="ObjectShortName">[8][0:15]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stimulus/test/R[9]" type="array">
+      <obj_property name="ElementShortName">[9][0:15]</obj_property>
+      <obj_property name="ObjectShortName">[9][0:15]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stimulus/test/R[10]" type="array">
+      <obj_property name="ElementShortName">[10][0:15]</obj_property>
+      <obj_property name="ObjectShortName">[10][0:15]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stimulus/test/R[11]" type="array">
+      <obj_property name="ElementShortName">[11][0:15]</obj_property>
+      <obj_property name="ObjectShortName">[11][0:15]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stimulus/test/R[12]" type="array">
+      <obj_property name="ElementShortName">[12][0:15]</obj_property>
+      <obj_property name="ObjectShortName">[12][0:15]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stimulus/test/R[13]" type="array">
+      <obj_property name="ElementShortName">[13][0:15]</obj_property>
+      <obj_property name="ObjectShortName">[13][0:15]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stimulus/test/R[14]" type="array">
+      <obj_property name="ElementShortName">[14][0:15]</obj_property>
+      <obj_property name="ObjectShortName">[14][0:15]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stimulus/test/R[15]" type="array">
+      <obj_property name="ElementShortName">[15][0:15]</obj_property>
+      <obj_property name="ObjectShortName">[15][0:15]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+</wave_config>
