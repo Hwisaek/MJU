@@ -1,0 +1,280 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Tue Jun  9 03:06:04 2020
+# Process ID: 3776
+# Current directory: C:/Vivado/hw7/hw7.runs/synth_1
+# Command line: vivado.exe -log Register.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Register.tcl
+# Log file: C:/Vivado/hw7/hw7.runs/synth_1/Register.vds
+# Journal file: C:/Vivado/hw7/hw7.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source Register.tcl -notrace
+Command: synth_design -top Register -part xc7a50ticsg325-1L
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a50ti'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a50ti'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 13736 
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 506.332 ; gain = 209.668
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'Register' [C:/Vivado/hw7/hw7.srcs/sources_1/new/myCPU.v:87]
+INFO: [Synth 8-6157] synthesizing module 'R' [C:/Vivado/hw7/hw7.srcs/sources_1/new/myCPU.v:65]
+INFO: [Synth 8-6157] synthesizing module 'dff' [C:/Vivado/hw7/hw7.srcs/sources_1/new/myCPU.v:56]
+INFO: [Synth 8-6155] done synthesizing module 'dff' (1#1) [C:/Vivado/hw7/hw7.srcs/sources_1/new/myCPU.v:56]
+INFO: [Synth 8-6155] done synthesizing module 'R' (2#1) [C:/Vivado/hw7/hw7.srcs/sources_1/new/myCPU.v:65]
+WARNING: [Synth 8-689] width (1) of port connection 'R_out' does not match port width (16) of module 'R' [C:/Vivado/hw7/hw7.srcs/sources_1/new/myCPU.v:92]
+WARNING: [Synth 8-689] width (1) of port connection 'R_out' does not match port width (16) of module 'R' [C:/Vivado/hw7/hw7.srcs/sources_1/new/myCPU.v:93]
+WARNING: [Synth 8-689] width (1) of port connection 'R_out' does not match port width (16) of module 'R' [C:/Vivado/hw7/hw7.srcs/sources_1/new/myCPU.v:94]
+WARNING: [Synth 8-689] width (1) of port connection 'R_out' does not match port width (16) of module 'R' [C:/Vivado/hw7/hw7.srcs/sources_1/new/myCPU.v:95]
+WARNING: [Synth 8-689] width (1) of port connection 'R_out' does not match port width (16) of module 'R' [C:/Vivado/hw7/hw7.srcs/sources_1/new/myCPU.v:96]
+WARNING: [Synth 8-689] width (1) of port connection 'R_out' does not match port width (16) of module 'R' [C:/Vivado/hw7/hw7.srcs/sources_1/new/myCPU.v:97]
+WARNING: [Synth 8-689] width (1) of port connection 'R_out' does not match port width (16) of module 'R' [C:/Vivado/hw7/hw7.srcs/sources_1/new/myCPU.v:98]
+WARNING: [Synth 8-689] width (1) of port connection 'R_out' does not match port width (16) of module 'R' [C:/Vivado/hw7/hw7.srcs/sources_1/new/myCPU.v:99]
+WARNING: [Synth 8-689] width (1) of port connection 'R_out' does not match port width (16) of module 'R' [C:/Vivado/hw7/hw7.srcs/sources_1/new/myCPU.v:100]
+WARNING: [Synth 8-689] width (1) of port connection 'R_out' does not match port width (16) of module 'R' [C:/Vivado/hw7/hw7.srcs/sources_1/new/myCPU.v:101]
+WARNING: [Synth 8-689] width (1) of port connection 'R_out' does not match port width (16) of module 'R' [C:/Vivado/hw7/hw7.srcs/sources_1/new/myCPU.v:102]
+WARNING: [Synth 8-689] width (1) of port connection 'R_out' does not match port width (16) of module 'R' [C:/Vivado/hw7/hw7.srcs/sources_1/new/myCPU.v:103]
+WARNING: [Synth 8-689] width (1) of port connection 'R_out' does not match port width (16) of module 'R' [C:/Vivado/hw7/hw7.srcs/sources_1/new/myCPU.v:104]
+WARNING: [Synth 8-689] width (1) of port connection 'R_out' does not match port width (16) of module 'R' [C:/Vivado/hw7/hw7.srcs/sources_1/new/myCPU.v:105]
+WARNING: [Synth 8-689] width (1) of port connection 'R_out' does not match port width (16) of module 'R' [C:/Vivado/hw7/hw7.srcs/sources_1/new/myCPU.v:106]
+WARNING: [Synth 8-689] width (1) of port connection 'R_out' does not match port width (16) of module 'R' [C:/Vivado/hw7/hw7.srcs/sources_1/new/myCPU.v:107]
+INFO: [Synth 8-6155] done synthesizing module 'Register' (3#1) [C:/Vivado/hw7/hw7.srcs/sources_1/new/myCPU.v:87]
+WARNING: [Synth 8-3331] design dff has unconnected port reset
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 579.234 ; gain = 282.570
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 579.234 ; gain = 282.570
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a50ticsg325-1L
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 579.234 ; gain = 282.570
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a50ticsg325-1L
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 579.234 ; gain = 282.570
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 256   
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module dff 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 120 (col length:60)
+BRAMs: 150 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+WARNING: [Synth 8-3331] design Register has unconnected port reset
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 718.281 ; gain = 421.617
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 718.281 ; gain = 421.617
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 718.281 ; gain = 421.617
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 718.281 ; gain = 421.617
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 718.281 ; gain = 421.617
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 718.281 ; gain = 421.617
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 718.281 ; gain = 421.617
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 718.281 ; gain = 421.617
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 718.281 ; gain = 421.617
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |BUFG |     1|
+|2     |FDRE |    16|
+|3     |IBUF |    17|
+|4     |OBUF |    16|
++------+-----+------+
+
+Report Instance Areas: 
++------+----------+-------+------+
+|      |Instance  |Module |Cells |
++------+----------+-------+------+
+|1     |top       |       |    50|
+|2     |  R0      |R      |     1|
+|3     |    dff15 |dff_29 |     1|
+|4     |  R1      |R_0    |     1|
+|5     |    dff15 |dff_28 |     1|
+|6     |  R10     |R_1    |     1|
+|7     |    dff15 |dff_27 |     1|
+|8     |  R11     |R_2    |     1|
+|9     |    dff15 |dff_26 |     1|
+|10    |  R12     |R_3    |     1|
+|11    |    dff15 |dff_25 |     1|
+|12    |  R13     |R_4    |     1|
+|13    |    dff15 |dff_24 |     1|
+|14    |  R14     |R_5    |     1|
+|15    |    dff15 |dff_23 |     1|
+|16    |  R15     |R_6    |     1|
+|17    |    dff15 |dff_22 |     1|
+|18    |  R2      |R_7    |     1|
+|19    |    dff15 |dff_21 |     1|
+|20    |  R3      |R_8    |     1|
+|21    |    dff15 |dff_20 |     1|
+|22    |  R4      |R_9    |     1|
+|23    |    dff15 |dff_19 |     1|
+|24    |  R5      |R_10   |     1|
+|25    |    dff15 |dff_18 |     1|
+|26    |  R6      |R_11   |     1|
+|27    |    dff15 |dff_17 |     1|
+|28    |  R7      |R_12   |     1|
+|29    |    dff15 |dff_16 |     1|
+|30    |  R8      |R_13   |     1|
+|31    |    dff15 |dff_15 |     1|
+|32    |  R9      |R_14   |     1|
+|33    |    dff15 |dff    |     1|
++------+----------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 718.281 ; gain = 421.617
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 18 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 718.281 ; gain = 421.617
+Synthesis Optimization Complete : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 718.281 ; gain = 421.617
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 720.363 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 816.207 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+13 Infos, 18 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 816.207 ; gain = 519.543
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 816.207 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'C:/Vivado/hw7/hw7.runs/synth_1/Register.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file Register_utilization_synth.rpt -pb Register_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Tue Jun  9 03:06:22 2020...
