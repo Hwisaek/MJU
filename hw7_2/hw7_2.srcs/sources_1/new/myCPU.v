@@ -6,16 +6,13 @@ output [0:23] hwdata;
 input [0:15] hrdata;
 input clk, reset_n; // reset_n == 0 인 경우 리셋 
 
-parameter S0 = 0, S1 = 1, S2 = 2, // S1 = HRDATA 값을 분석 , S2 = opcode에 따라 수행, S3 = LD일 경우 메모리에서 값 읽기
+parameter S0 = 0, S1 = 1, // S0 = HRDATA 값을 분석 , S1 = opcode에 따라 수행
           ADD = 0, SUB = 1, AND = 2, OR = 3, LD = 4, ST = 5;
           
 reg [0:1] state, next_state;
-
 reg [0:7] haddr_r, haddr_r_next; // 모듈 연결시 오류 발생 가능성이 있으므로 레지스터를 따로 지정
-
 reg [0:3] opcode, oper1, oper2, oper3;
 reg [0:7] mem_addr;
-
 reg [0:15] R_in[0:15], R_out[0:15];
 reg [0:23] hwdata_r;
 // 상태기
@@ -52,7 +49,7 @@ always @ (state, hrdata)
                 SUB: R_in[oper3] = R_out[oper1] - R_out[oper2];
                 AND: R_in[oper3] = R_out[oper1] & R_out[oper2];
                 OR: R_in[oper3] = R_out[oper1] | R_out[oper2];
-                LD: #1 R_in[oper1] = haddr;
+                LD: #1 R_in[oper1] = haddr; // haddr를 
                 ST: hwdata_r = {mem_addr, R_out[oper1]};
             endcase
         end
@@ -72,9 +69,9 @@ begin
 end
 always @ (state)
 begin
-    if (state == S1 && (opcode == LD))
+    if (state == S1 && (opcode == LD)) // LD를 하는 경우에는 s0일때 들어온 값의 뒷부분을 haddr로 다시 메모리에 보내서 해당 주소의 값을 받아옴
         haddr_r = mem_addr;
-    else
+    else // LD를 하지 않는 경우에는 그대로 1씩 증가 
         haddr_r = haddr_r_next;
 end
 assign haddr = haddr_r;
