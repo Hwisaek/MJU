@@ -117,7 +117,7 @@ while True:
 
     # 입을 벌린 시간을 txt로 저장
     f = open("count_mouth.txt", 'w')
-    data = "mouth: {}".format(count_mouth_open)
+    data = "mouth: {}".format(mouth_time)
     f.write(data)
     f.close()
 
@@ -132,7 +132,7 @@ while True:
         if mouth_time_open != 0 and mouth_time_close == 0:
             mouth_time_close = time.time()
             mouth_time += mouth_time_close - mouth_time_open
-        print(mouth_time)
+        print(round(mouth_time,2))
         break
 
 # 생성한 모든 윈도우 제거
