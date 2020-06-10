@@ -123,7 +123,9 @@ class FaceRecog():
 
 
 if __name__ == '__main__':
+    start = time.time()
     face_recog = FaceRecog()
+    print('특징 추출 시간 : ',time.time() - start)
     start = time.time()  # 시작 시간 저장
 
     while True:
@@ -134,8 +136,8 @@ if __name__ == '__main__':
         cv2.imshow("Frame", frame)
         key = cv2.waitKey(1) & 0xFF
 
-##        if (key == ord("q")) or (time.time() - start) >= 5:  # q를 누르거나 5초 지나면 종료
-##            break
+        if (key == ord("q")) or (time.time() - start) >= 5:  # q를 누르거나 5초 지나면 종료
+            break
 
     # 생성한 윈도우 창 제거
     cv2.destroyAllWindows()

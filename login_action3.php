@@ -2,7 +2,7 @@
 <?php
   session_start();
   $python = `python mouth.py`;
-  if ($python>($_SESSION['mouth']*23-15)&& $python<($_SESSION['mouth']*23+15)) {
+  if ($python>($_SESSION['mouth']-0.5)&& $python<($_SESSION['mouth']+0.5)) {
     ?>
     <script>
       alert("2차 입모양 성공\n 눈 깜빡임 테스트");

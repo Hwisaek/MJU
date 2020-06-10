@@ -64,6 +64,9 @@ capture.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
 capture.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 
 start = time.time()  # 시작 시간 저장
+mouth_time = 0
+mouth_time_open = 0
+mouth_time_close = 0
 while True:
     # 재생되는 비디오의 한 프레임 씩 읽어서 두 개의 값 반환
     # 첫 번째 값은 제대로 읽었으면 True, 아니면 False
@@ -80,14 +83,29 @@ while True:
 
         # 입의 비율 계산
         mouths = get_mouth_pen_ratio(mouth_points, landmarks)
-
+        
         # 입의 가로 길이가 세로 길이의 5배보다 작거나 같으면 입을 벌린 것으로 인식
         if mouths <= 5.0:
+            if mouth_time_open == 0:
+                mouth_time_open = time.time()
             count_mouth_open += 1  # 입을 벌리면 1씩 증가
+        else:
+            if mouth_time_close == 0 and mouth_time_open != 0:
+                mouth_time_close = time.time()
+            if mouth_time_open != 0 and mouth_time_close != 0:
+                mouth_time += mouth_time_close - mouth_time_open
+                mouth_time_open = 0
+                mouth_time_close = 0
 
     # 입을 벌린 시간 출력 , 정확한 시간(초)가 아니라 1초당 약 23
     cv2.putText(image, "Mouth open: " + str(count_mouth_open),
                 (50, 50), font, 2, (255, 0, 0))
+    cv2.putText(image, "Mouth time: " + str(mouth_time),
+                (50, 100), font, 2, (255, 0, 0))    
+    cv2.putText(image, "Mouth open: " + str(mouth_time_open),
+                (50, 150), font, 2, (255, 0, 0))
+    cv2.putText(image, "Mouth close: " + str(mouth_time_close),
+                (50, 200), font, 2, (255, 0, 0))
 
     # 받아온 frame을 화면에 표시
     cv2.imshow("Frame", image)
@@ -108,8 +126,13 @@ while True:
     # chr() 함수는 아스키 코드 값을 문자로 변환하는 함수
     # ord('c') 는 99를 리턴
     # chr(99) 는 'c' 를 리턴
-    if (key == ord("q")) or (time.time() - start) >= 10:
-        print(str(count_mouth_open))
+    if (key == ord("q")) or (time.time() - start) >= 5:
+##        print(str(count_mouth_open))
+##        print(time.time() - start)
+        if mouth_time_open != 0 and mouth_time_close == 0:
+            mouth_time_close = time.time()
+            mouth_time += mouth_time_close - mouth_time_open
+        print(mouth_time)
         break
 
 # 생성한 모든 윈도우 제거

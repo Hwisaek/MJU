@@ -2,6 +2,7 @@
 import dlib
 from math import hypot
 import time
+import cv2
 
 # face detector 와 landmark predictor 정의
 detector = dlib.get_frontal_face_detector()
