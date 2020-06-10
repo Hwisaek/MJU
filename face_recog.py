@@ -26,7 +26,19 @@ class FaceRecog():
                 # knowns 디렉토리에서 사진 파일을 읽어와서 사람 이름을 추출
                 pathname = os.path.join(dirname, filename)
                 img = face_recognition.load_image_file(pathname)
-                face_encoding = face_recognition.face_encodings(img)[0]  # 특징 추출
+                
+                # 특징 추출
+                # 얼굴 특징을 검출할 수 없을 경우 에러 발생
+##                face_encoding = face_recognition.face_encodings(img)[0]  
+
+                # 에러 발생시 해결하는 코드 
+                encodings = face_recognition.face_encodings(img)
+                if len(encodings) > 0:
+                    face_encoding = encodings[0]
+                else: # 얼굴 특징을 찾을 수 없는 사진이 있을 경우 해당 사진을 출력해줌
+                   print("{} : No faces found in the image!".format(name))
+##                   quit()
+                
                 # 사진에서 얼굴 특징의 데이터를 분석한 데이터를 self.known_face_encodings 에 저장
                 self.known_face_encodings.append(face_encoding)
 
@@ -69,11 +81,11 @@ class FaceRecog():
                 # 0.6 이상은 다른 사람의 얼굴
                 # 인식이 잘 안되면 min_value의 범위 조절 (0.6이 최적)
                 name = "Unknown"
-                if min_value < 0.6:
+                if min_value < 0.4:
                     index = np.argmin(distances)
                     name = self.known_face_names[index]
                     print(name)  # 인식된 이름 출력
-                    break
+##                    break
 
                 self.face_names.append(name)
 
@@ -122,8 +134,8 @@ if __name__ == '__main__':
         cv2.imshow("Frame", frame)
         key = cv2.waitKey(1) & 0xFF
 
-        if (key == ord("q")) or (time.time() - start) >= 5:  # q를 누르거나 5초 지나면 종료
-            break
+##        if (key == ord("q")) or (time.time() - start) >= 5:  # q를 누르거나 5초 지나면 종료
+##            break
 
     # 생성한 윈도우 창 제거
     cv2.destroyAllWindows()
