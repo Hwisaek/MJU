@@ -15,6 +15,10 @@
             text-decoration: none;
             color: blue;
         }
+
+        .contents {
+            display: none;
+        }
     </style>
     <script>
         $(document).ready(function () {
@@ -29,6 +33,7 @@
 
             // 클릭시 내용 접었다가 펼쳐짐
             $('body > div > h2').each(function (index, item) {
+                document.getElementById('index-'+(index+1)+'_contents').style.display = 'none';
                 $(item).click(function () {
                     if (document.getElementById('index-'+(index+1)+'_contents').style.display == 'none'){
                         document.getElementById('index-'+(index+1)+'_contents').style.display = 'block';
