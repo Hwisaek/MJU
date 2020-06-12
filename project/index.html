@@ -33,92 +33,111 @@
 
             // 클릭시 내용 접었다가 펼쳐짐
             $('body > div > h2').each(function (index, item) {
-                document.getElementById('index-'+(index+1)+'_contents').style.display = 'none';
+                document.getElementById('index-' + (index + 1) + '_contents').style.display = 'none';
                 $(item).click(function () {
-                    if (document.getElementById('index-'+(index+1)+'_contents').style.display == 'none'){
-                        document.getElementById('index-'+(index+1)+'_contents').style.display = 'block';
+                    if (document.getElementById('index-' + (index + 1) + '_contents').style.display == 'none') {
+                        document.getElementById('index-' + (index + 1) + '_contents').style.display = 'block';
                     } else {
-                        document.getElementById('index-'+(index+1)+'_contents').style.display = 'none';
+                        document.getElementById('index-' + (index + 1) + '_contents').style.display = 'none';
                     }
                 });
             });
-
+            var icon_left = 0;
+            var icon_top = 0;
+            var icon_left_state = 1;
+            var icon_top_state = 1;
+            setInterval(function () {
+                icon_left += 1*icon_left_state;
+                icon_top += 1*icon_top_state;
+                if($('img#icon').css('paddingLeft') == '400px'){
+                    icon_left_state = -1;
+                }else if($('img#icon').css('paddingLeft') == '0px'){
+                    icon_left_state = 1;
+                }
+                if($('img#icon').css('paddingTop') == '100px'){
+                    icon_top_state = -1;
+                }else if($('img#icon').css('paddingTop') == '0px'){
+                    icon_top_state = 1;
+                }
+                $('img#icon').css('paddingLeft', icon_left + 'px');
+                $('img#icon').css('paddingTop', icon_top + 'px');
+            }, 5);
         })
     </script>
 </head>
 
 <body>
-    <h1>
-        Github Desktop
-    </h1>
-    <div>
-        <table>
-            <tr>
-                <td style="border: 1px solid black; padding: 14px; padding-top: 0px">
+<h1>
+    Github Desktop
+</h1>
+<div>
+    <table>
+        <tr>
+            <td style="border: 1px solid black; padding: 14px; padding-top: 0px; height: 200px">
                 <h4 id="index-list" style="font-size: 20px">목차</h4>
-                <span><a href="#index-1" >1</a>. 개요</span><br>
-                <span><a href="#index-2" >2</a>. Github Desktop</span><br>
-                <span><a href="#index-3" >3</a>. Github Desktop 사용법</span><br>
-<!--                <span><a href="#index-4" >4</a>. 깃허브 연결 방법</span><br>-->
-<!--                <span><a href="#index-5" >5</a>. 기타</span>-->
-                </td>
-                <td>
-                <img src="contents/img/GithubDesktop.png" style="height: 200px; margin-left: 500px">
-                </td>
-            </tr>
-        </table>
+                <span><a href="#index-1">1</a>. 개요</span><br>
+                <span><a href="#index-2">2</a>. Github Desktop</span><br>
+                <span><a href="#index-3">3</a>. Github Desktop 사용법</span><br>
+                <!--                <span><a href="#index-4" >4</a>. 깃허브 연결 방법</span><br>-->
+                <!--                <span><a href="#index-5" >5</a>. 기타</span>-->
+            </td>
+            <td style="width: 500px; vertical-align: top">
+                <img id="icon" src="contents/img/GithubDesktop.png" style="height: 100px;">
+            </td>
+        </tr>
+    </table>
 
 
+</div>
+<br>
+<div>
+    <h2 id="index-1">
+        <a id="index-1_num" href="#index-1" class="index_num">1.</a>
+        개요
+    </h2>
+    <hr>
+    <div id="index-1_contents">
+        내용<br><br><br><br><br><br><br><br><br><br><br><br>
     </div>
-    <br>
-    <div>
-        <h2 id="index-1">
-            <a id="index-1_num" href="#index-1" class="index_num">1.</a>
-            개요
-        </h2>
-        <hr>
-        <div id="index-1_contents">
-            내용<br><br><br><br><br><br><br><br><br><br><br><br>
-        </div>
 
-        <h2 id="index-2">
-            <a id="index-2_num" href="#index-2" class="index_num">2.</a>
-            Github Desktop
-        </h2>
-        <hr>
-        <div id="index-2_contents">
-            내용<br><br><br><br><br><br><br><br><br><br><br><br>
-        </div>
-
-
-        <h2 id="index-3">
-            <a id="index-3_num" href="#index-3" class="index_num"> 3.</a>
-            Github Desktop 사용법
-        </h2>
-        <hr>
-        <div id="index-3_contents">
-            내용<br><br><br><br><br><br><br><br><br><br><br><br>
-        </div>
-
-
-<!--        <h2 id="index-4">-->
-<!--            <a id="index-4_num" href="#index-4" class="index_num">4.</a>-->
-<!--            깃허브 연결 방법-->
-<!--        </h2>-->
-<!--        <hr>-->
-<!--        <div id="index-4_contents">-->
-<!--            내용<br><br><br><br><br><br><br><br><br><br><br><br>-->
-<!--        </div>-->
-
-
-<!--        <h2 id="index-5">-->
-<!--            <a id="index-5_num" href="#index-5" class="index_num">5.</a>-->
-<!--            기타-->
-<!--        </h2>-->
-<!--        <hr>-->
-<!--        <div id="index-5_contents">-->
-<!--            내용<br><br><br><br><br><br><br><br><br><br><br><br>-->
-<!--        </div>-->
+    <h2 id="index-2">
+        <a id="index-2_num" href="#index-2" class="index_num">2.</a>
+        Github Desktop
+    </h2>
+    <hr>
+    <div id="index-2_contents">
+        내용<br><br><br><br><br><br><br><br><br><br><br><br>
     </div>
+
+
+    <h2 id="index-3">
+        <a id="index-3_num" href="#index-3" class="index_num"> 3.</a>
+        Github Desktop 사용법
+    </h2>
+    <hr>
+    <div id="index-3_contents">
+        내용<br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
+
+
+    <!--        <h2 id="index-4">-->
+    <!--            <a id="index-4_num" href="#index-4" class="index_num">4.</a>-->
+    <!--            깃허브 연결 방법-->
+    <!--        </h2>-->
+    <!--        <hr>-->
+    <!--        <div id="index-4_contents">-->
+    <!--            내용<br><br><br><br><br><br><br><br><br><br><br><br>-->
+    <!--        </div>-->
+
+
+    <!--        <h2 id="index-5">-->
+    <!--            <a id="index-5_num" href="#index-5" class="index_num">5.</a>-->
+    <!--            기타-->
+    <!--        </h2>-->
+    <!--        <hr>-->
+    <!--        <div id="index-5_contents">-->
+    <!--            내용<br><br><br><br><br><br><br><br><br><br><br><br>-->
+    <!--        </div>-->
+</div>
 </body>
 </html>
