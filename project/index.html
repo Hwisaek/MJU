@@ -3,32 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <title>Github 사용법</title>
-    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <!--    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>-->
+    <script src="js/jquery-3.5.1.min.js"></script>
     <link href="github.ico" rel="icon" type="image/x-icon">
     <style>
-    .index_num {
-        text-decoration: none;
-        color: blue;
-    }
+        .index {
+            cursor: pointer;
+        }
+
+        .index_num {
+            text-decoration: none;
+            color: blue;
+        }
     </style>
     <script>
-        function alert() {
-            alert('test');
-        }
+        $(document).ready(function () {
+            $('body > div > h2').addClass('index');
+            $('body span > a').addClass('index_num');
+
+            // 내용 표시
+            // 내용은 contents 폴더 내부에 존재
+            $('h2').each(function (index, item) {
+                $('div#index-' + (index + 1) + '_contents').load('contents/content' + (index + 1) + '.txt');
+            })
+
+            $('body > div > h2').each(function (index, item) {
+                $(item).click(function () {
+                    if (document.getElementById('index-'+(index+1)+'_contents').style.display == 'none'){
+                        document.getElementById('index-'+(index+1)+'_contents').style.display = 'block';
+                    } else {
+                        document.getElementById('index-'+(index+1)+'_contents').style.display = 'none';
+                    }
+                });
+            });
+        })
     </script>
 </head>
+
 <body>
+    <h1>
+        Github
+    </h1>
     <div>
-        <h4 id="index-list" >목차</h4>
-        <span><a href="#index-1" class="index_num">1</a>. 개요</span><br>
-        <span><a href="#index-2" class="index_num">1</a>. 깃허브란</span><br>
-        <span><a href="#index-3" class="index_num">2</a>. 깃허브 사용법</span><br>
-        <span><a href="#index-4" class="index_num">3</a>. 깃허브 연결 방법</span><br>
-        <span><a href="#index-5" class="index_num">4</a>. 기타</span><br>
+        <table>
+            <tr>
+                <td style="border: 1px solid black; padding: 14px; padding-top: 0px">
+                <h4 id="index-list" style="font-size: 20px">목차</h4>
+                <span><a href="#index-1" >1</a>. 개요</span><br>
+                <span><a href="#index-2" >2</a>. 깃허브란</span><br>
+                <span><a href="#index-3" >3</a>. 깃허브 사용법</span><br>
+                <span><a href="#index-4" >4</a>. 깃허브 연결 방법</span><br>
+                <span><a href="#index-5" >5</a>. 기타</span>
+                </td>
+                <td>
+                <img src="github.png" style="height: 200px; margin-left: 500px">
+                </td>
+            </tr>
+        </table>
+
+
     </div>
     <br>
     <div>
-        <h2 id="index-1" onmouseover="alert()">
+        <h2 id="index-1">
             <a id="index-1_num" href="#index-1" class="index_num">1.</a>
             개요
         </h2>
