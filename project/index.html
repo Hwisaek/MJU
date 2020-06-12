@@ -23,7 +23,18 @@
         $(document).ready(function () {
             $('body > div > h2').addClass('index');
             $('body a').addClass('index_num');
+            $('td:eq(0)').css({
+                border: '1px solid black',
+                padding: '14px',
+                paddingTop: '0px',
+                height: '200px'
+            });
+            $('td:eq(1)').css({
+                width: '500px',
+                verticalAlign: 'top'
+            });
 
+            
             // 내용 표시
             // 내용은 contents 폴더 내부에 존재
             $('h2').each(function (index, item) {
@@ -64,6 +75,8 @@
                 $('img#icon').css('paddingTop', icon_top + 'px');
             }, 5);
 
+
+
         })
     </script>
 </head>
@@ -75,13 +88,13 @@
 <div>
     <table>
         <tr>
-            <td style="border: 1px solid black; padding: 14px; padding-top: 0px; height: 200px">
+            <td>
                 <h4 id="index-list" style="font-size: 20px">목차</h4>
                 <span><a href="#index-1">1</a>. 개요</span><br>
                 <span><a href="#index-2">2</a>. Github Desktop</span><br>
                 <span><a href="#index-3">3</a>. Github Desktop 사용법</span><br>
             </td>
-            <td style="width: 500px; vertical-align: top">
+            <td >
                 <img id="icon" src="contents/img/GithubDesktop.png" style="height: 100px;">
             </td>
         </tr>
