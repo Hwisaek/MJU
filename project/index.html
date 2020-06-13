@@ -20,7 +20,18 @@
         }
     </style>
     <script>
+
+        var array_index = [];
+        array_index.push({index: 1, title: '개요'});
+        array_index.push({index: 2, title: 'Github Desktop'});
+        array_index.push({index: 3, title: 'Github Desktop 사용법'});
+
         $(document).ready(function () {
+            $('span').each(function (index, item) {
+                $(item).prepend('<a href="#index-'+(index+1)+'">'+(index+1)+'</a>')
+                $(item).append('. ' + array_index[index].title);
+            })
+
             $('body > div > h2').addClass('index');
             $('body a').addClass('index_num');
             $('td:eq(0)').css({
@@ -34,6 +45,7 @@
                 verticalAlign: 'top'
             });
 
+
             
             // 내용 표시
             // 내용은 contents 폴더 내부에 존재
@@ -43,6 +55,7 @@
 
             // 클릭시 내용 접었다가 펼쳐짐
             $('body > div > h2').each(function (index, item) {
+                // 초기값 : 안보이는 상태
                 document.getElementById('index-' + (index + 1) + '_contents').style.display = 'none';
                 $(item).click(function () {
                     if (document.getElementById('index-' + (index + 1) + '_contents').style.display == 'none') {
@@ -90,9 +103,9 @@
         <tr>
             <td>
                 <h4 id="index-list" style="font-size: 20px">목차</h4>
-                <span><a href="#index-1">1</a>. 개요</span><br>
-                <span><a href="#index-2">2</a>. Github Desktop</span><br>
-                <span><a href="#index-3">3</a>. Github Desktop 사용법</span><br>
+                <span></span><br>
+                <span></span><br>
+                <span></span><br>
             </td>
             <td >
                 <img id="icon" src="contents/img/GithubDesktop.png" style="height: 100px;">
