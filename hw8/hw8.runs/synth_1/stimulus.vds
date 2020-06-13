@@ -1,0 +1,476 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Sun Jun 14 02:04:00 2020
+# Process ID: 11508
+# Current directory: C:/Vivado/hw8/hw8.runs/synth_1
+# Command line: vivado.exe -log stimulus.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source stimulus.tcl
+# Log file: C:/Vivado/hw8/hw8.runs/synth_1/stimulus.vds
+# Journal file: C:/Vivado/hw8/hw8.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source stimulus.tcl -notrace
+Command: synth_design -top stimulus -part xc7a50ticsg325-1L
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a50ti'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a50ti'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 11580 
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 507.516 ; gain = 208.883
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'stimulus' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:140]
+WARNING: [Synth 8-6896] loop limit (65536) exceeded inside initial block, initial block items will be ignored [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:158]
+INFO: [Synth 8-6157] synthesizing module 'myCPU' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:3]
+	Parameter S0 bound to: 0 - type: integer 
+	Parameter S1 bound to: 1 - type: integer 
+	Parameter ADD bound to: 0 - type: integer 
+	Parameter SUB bound to: 1 - type: integer 
+	Parameter AND bound to: 2 - type: integer 
+	Parameter OR bound to: 3 - type: integer 
+	Parameter LD bound to: 4 - type: integer 
+	Parameter ST bound to: 5 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:20]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:35]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:47]
+WARNING: [Synth 8-567] referenced signal 'R_out' should be on the sensitivity list [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:31]
+WARNING: [Synth 8-567] referenced signal 'haddr' should be on the sensitivity list [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:31]
+WARNING: [Synth 8-567] referenced signal 'opcode' should be on the sensitivity list [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:70]
+WARNING: [Synth 8-567] referenced signal 'mem_addr' should be on the sensitivity list [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:70]
+WARNING: [Synth 8-567] referenced signal 'haddr_r_next' should be on the sensitivity list [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:70]
+INFO: [Synth 8-6155] done synthesizing module 'myCPU' (1#1) [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:3]
+INFO: [Synth 8-6157] synthesizing module 'myMem' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:106]
+WARNING: [Synth 8-567] referenced signal 'addr' should be on the sensitivity list [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:133]
+WARNING: [Synth 8-567] referenced signal 'data' should be on the sensitivity list [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:133]
+INFO: [Synth 8-6155] done synthesizing module 'myMem' (2#1) [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:106]
+INFO: [Synth 8-6155] done synthesizing module 'stimulus' (3#1) [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:140]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 609.078 ; gain = 310.445
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 609.078 ; gain = 310.445
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a50ticsg325-1L
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 609.078 ; gain = 310.445
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a50ticsg325-1L
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:47]
+WARNING: [Synth 8-327] inferring latch for variable 'next_state_reg' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:21]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_addr_reg' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:42]
+WARNING: [Synth 8-327] inferring latch for variable 'hwdata_r_reg' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:53]
+WARNING: [Synth 8-327] inferring latch for variable 'R_in_reg[0]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:48]
+WARNING: [Synth 8-327] inferring latch for variable 'R_in_reg[1]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:48]
+WARNING: [Synth 8-327] inferring latch for variable 'R_in_reg[2]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:48]
+WARNING: [Synth 8-327] inferring latch for variable 'R_in_reg[3]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:48]
+WARNING: [Synth 8-327] inferring latch for variable 'R_in_reg[4]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:48]
+WARNING: [Synth 8-327] inferring latch for variable 'R_in_reg[5]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:48]
+WARNING: [Synth 8-327] inferring latch for variable 'R_in_reg[6]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:48]
+WARNING: [Synth 8-327] inferring latch for variable 'R_in_reg[7]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:48]
+WARNING: [Synth 8-327] inferring latch for variable 'R_in_reg[8]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:48]
+WARNING: [Synth 8-327] inferring latch for variable 'R_in_reg[9]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:48]
+WARNING: [Synth 8-327] inferring latch for variable 'R_in_reg[10]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:48]
+WARNING: [Synth 8-327] inferring latch for variable 'R_in_reg[11]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:48]
+WARNING: [Synth 8-327] inferring latch for variable 'R_in_reg[12]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:48]
+WARNING: [Synth 8-327] inferring latch for variable 'R_in_reg[13]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:48]
+WARNING: [Synth 8-327] inferring latch for variable 'R_in_reg[14]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:48]
+WARNING: [Synth 8-327] inferring latch for variable 'R_in_reg[15]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:48]
+WARNING: [Synth 8-327] inferring latch for variable 'oper1_reg' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:37]
+WARNING: [Synth 8-327] inferring latch for variable 'oper2_reg' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:37]
+WARNING: [Synth 8-327] inferring latch for variable 'oper3_reg' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:37]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[0]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[1]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[2]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[3]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[4]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[5]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[6]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[7]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[8]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[9]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[10]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[11]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[12]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[13]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[14]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[15]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[16]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[17]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[18]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[19]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[20]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[21]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[22]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[23]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[24]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[25]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[26]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[27]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[28]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[29]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[30]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[31]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[32]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[33]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[34]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[35]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[36]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[37]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[38]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[39]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[40]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[41]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[42]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[43]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[44]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[45]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[46]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[47]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[48]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[49]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[50]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[51]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[52]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[53]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[54]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[55]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[56]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[57]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[58]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[59]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[60]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[61]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[62]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[63]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[64]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[65]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[66]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[67]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[68]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[69]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[70]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[71]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[72]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[73]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[74]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[75]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[76]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+WARNING: [Synth 8-327] inferring latch for variable 'M_reg[77]' [C:/Vivado/hw8/hw8.srcs/sources_1/new/myCPU.v:135]
+INFO: [Common 17-14] Message 'Synth 8-327' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 624.020 ; gain = 325.387
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     16 Bit       Adders := 1     
+	   2 Input      8 Bit       Adders := 1     
++---Registers : 
+	               16 Bit    Registers := 16    
+	                8 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 1     
+	   7 Input     16 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 235   
+	   8 Input      1 Bit        Muxes := 20    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module myCPU 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     16 Bit       Adders := 1     
+	   2 Input      8 Bit       Adders := 1     
++---Registers : 
+	               16 Bit    Registers := 16    
+	                8 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 1     
+	   7 Input     16 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 35    
+	   8 Input      1 Bit        Muxes := 20    
+Module myMem 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 200   
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 120 (col length:60)
+BRAMs: 150 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+WARNING: [Synth 8-3332] Sequential element (CPU/next_state_reg[0]__0) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/next_state_reg[1]__0) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/mem_addr_reg[0]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/mem_addr_reg[1]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/mem_addr_reg[2]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/mem_addr_reg[3]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/mem_addr_reg[4]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/mem_addr_reg[5]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/mem_addr_reg[6]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/mem_addr_reg[7]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/hwdata_r_reg[0]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/hwdata_r_reg[1]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/hwdata_r_reg[2]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/hwdata_r_reg[3]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/hwdata_r_reg[4]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/hwdata_r_reg[5]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/hwdata_r_reg[6]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/hwdata_r_reg[7]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/hwdata_r_reg[8]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/hwdata_r_reg[9]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/hwdata_r_reg[10]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/hwdata_r_reg[11]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/hwdata_r_reg[12]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/hwdata_r_reg[13]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/hwdata_r_reg[14]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/hwdata_r_reg[15]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/hwdata_r_reg[16]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/hwdata_r_reg[17]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/hwdata_r_reg[18]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/hwdata_r_reg[19]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/hwdata_r_reg[20]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/hwdata_r_reg[21]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/hwdata_r_reg[22]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/hwdata_r_reg[23]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[0][0]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[0][1]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[0][2]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[0][3]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[0][4]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[0][5]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[0][6]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[0][7]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[0][8]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[0][9]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[0][10]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[0][11]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[0][12]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[0][13]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[0][14]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[0][15]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[1][0]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[1][1]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[1][2]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[1][3]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[1][4]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[1][5]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[1][6]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[1][7]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[1][8]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[1][9]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[1][10]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[1][11]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[1][12]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[1][13]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[1][14]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[1][15]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[2][0]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[2][1]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[2][2]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[2][3]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[2][4]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[2][5]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[2][6]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[2][7]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[2][8]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[2][9]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[2][10]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[2][11]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[2][12]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[2][13]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[2][14]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[2][15]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[3][0]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[3][1]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[3][2]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[3][3]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[3][4]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[3][5]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[3][6]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[3][7]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[3][8]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[3][9]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[3][10]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[3][11]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[3][12]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[3][13]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[3][14]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[3][15]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[4][0]) is unused and will be removed from module stimulus.
+WARNING: [Synth 8-3332] Sequential element (CPU/R_in_reg[4][1]) is unused and will be removed from module stimulus.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 738.953 ; gain = 440.320
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 738.953 ; gain = 440.320
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 738.953 ; gain = 440.320
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 738.953 ; gain = 440.320
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 738.953 ; gain = 440.320
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 738.953 ; gain = 440.320
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 738.953 ; gain = 440.320
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 738.953 ; gain = 440.320
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 738.953 ; gain = 440.320
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++-+-----+------+
+| |Cell |Count |
++-+-----+------+
++-+-----+------+
+
+Report Instance Areas: 
++------+---------+-------+------+
+|      |Instance |Module |Cells |
++------+---------+-------+------+
+|1     |top      |       |     0|
++------+---------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 738.953 ; gain = 440.320
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 3732 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 738.953 ; gain = 440.320
+Synthesis Optimization Complete : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 738.953 ; gain = 440.320
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 738.953 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 835.465 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+19 Infos, 208 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:21 ; elapsed = 00:00:26 . Memory (MB): peak = 835.465 ; gain = 536.832
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 835.465 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'C:/Vivado/hw8/hw8.runs/synth_1/stimulus.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file stimulus_utilization_synth.rpt -pb stimulus_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sun Jun 14 02:04:29 2020...
