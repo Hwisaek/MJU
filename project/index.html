@@ -2,14 +2,16 @@
 <html lang="kr">
 <head>
     <meta charset="UTF-8">
-    <title>Github Desktop 사용법</title>
     <script src="js/jquery-3.5.1.min.js"></script>
+    <title>Github Desktop 사용법</title>
     <link href="contents/img/GithubDesktop.png" rel="icon" type="image/x-icon">
     <style>
+        /*손가락 모양*/
         .index {
             cursor: pointer;
         }
 
+        /*밑줄 제거 및 파랑색 글씨*/
         .index_num {
             text-decoration: none;
             color: blue;
@@ -21,6 +23,7 @@
     </style>
     <script>
 
+        // 목차 내용을 포함한 배열
         var array_index = [];
         array_index.push({index: 1, title: '개요'});
         array_index.push({index: 2, title: 'Github Desktop'});
@@ -32,19 +35,12 @@
                 background: 'linear-gradient( to right, white, gray)'
             })
 
+            // 목차 배열로부터 가져와서 목차 생성
             $('span').each(function (index, item) {
                 $(item).prepend('<a href="#index-' + (index + 1) + '">' + (index + 1) + '</a>')
                 $(item).append('. ' + array_index[index].title);
             })
 
-            $('h2').each(function (index, item) {
-                $(item).append('<a id="index-'+(index + 1)+'_num" href="#index-'+(index + 1)+'">'+array_index[index].index+'.</a>\n'+array_index[index].title);
-            })
-
-            // 제목 부분 클릭 시 손가락 모양
-            $('body > div > h2').addClass('index');
-            // 숫자 부분 밑줄 제거 및 파란색 유지
-            $('body a').addClass('index_num');
             // 목차 부분
             $('td:eq(0)').css({
                 border: '1px solid black',
@@ -52,12 +48,24 @@
                 paddingTop: '0px',
                 height: '200px'
             });
+
             // 아이콘 부분
             $('td:eq(1)').css({
                 width: '500px',
                 verticalAlign: 'top'
             });
 
+            // 내용의 목차 부분 생성
+            $('h2').each(function (index, item) {
+                $(item).append('<a id="index-' + (index + 1) + '_num" href="#index-'
+                    + (index + 1) + '">' + array_index[index].index + '.</a>\n' + array_index[index].title);
+            })
+
+            // 제목 부분 클릭 시 손가락 모양
+            $('body > div > h2').addClass('index');
+
+            // 목차 및 내용의 숫자 부분 밑줄 제거 및 파란색 유지
+            $('body a').addClass('index_num');
 
             // 내용 표시
             // 내용은 contents 폴더 내부에 존재
@@ -107,7 +115,7 @@
 
 <body>
 <h1>
-    Github Desktop
+    Github Desktop 사용법
 </h1>
 <div>
     <table>
@@ -118,6 +126,7 @@
                 <span></span><br>
                 <span></span><br>
             </td>
+            <!--            이미지 추가-->
             <td>
                 <img id="icon" src="contents/img/desktop-icon.svg" style="height: 100px;">
             </td>
@@ -129,21 +138,21 @@
 <br>
 <!--본문-->
 <div>
-<!--    문단 1-->
+    <!--    문단 1-->
     <h2 id="index-1">
     </h2>
     <hr>
     <div id="index-1_contents">
         내용
     </div>
-<!--    문단 2-->
+    <!--    문단 2-->
     <h2 id="index-2">
     </h2>
     <hr>
     <div id="index-2_contents">
         내용
     </div>
-<!--    문단 3-->
+    <!--    문단 3-->
     <h2 id="index-3">
     </h2>
     <hr>
