@@ -27,6 +27,11 @@
         array_index.push({index: 3, title: 'Github Desktop 사용법'});
 
         $(document).ready(function () {
+            // 배경 그라디언트
+            $('body').css({
+                background: 'linear-gradient( to right, white, gray)'
+            })
+
             $('span').each(function (index, item) {
                 $(item).prepend('<a href="#index-' + (index + 1) + '">' + (index + 1) + '</a>')
                 $(item).append('. ' + array_index[index].title);
@@ -114,7 +119,7 @@
                 <span></span><br>
             </td>
             <td>
-                <img id="icon" src="contents/img/GithubDesktop.png" style="height: 100px;">
+                <img id="icon" src="contents/img/desktop-icon.svg" style="height: 100px;">
             </td>
         </tr>
     </table>
