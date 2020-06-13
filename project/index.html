@@ -28,8 +28,12 @@
 
         $(document).ready(function () {
             $('span').each(function (index, item) {
-                $(item).prepend('<a href="#index-'+(index+1)+'">'+(index+1)+'</a>')
+                $(item).prepend('<a href="#index-' + (index + 1) + '">' + (index + 1) + '</a>')
                 $(item).append('. ' + array_index[index].title);
+            })
+
+            $('h2').each(function (index, item) {
+                $(item).append('<a id="index-'+(index + 1)+'_num" href="#index-'+(index + 1)+'">'+array_index[index].index+'.</a>\n'+array_index[index].title);
             })
 
             $('body > div > h2').addClass('index');
@@ -46,7 +50,6 @@
             });
 
 
-            
             // 내용 표시
             // 내용은 contents 폴더 내부에 존재
             $('h2').each(function (index, item) {
@@ -89,7 +92,6 @@
             }, 5);
 
 
-
         })
     </script>
 </head>
@@ -107,7 +109,7 @@
                 <span></span><br>
                 <span></span><br>
             </td>
-            <td >
+            <td>
                 <img id="icon" src="contents/img/GithubDesktop.png" style="height: 100px;">
             </td>
         </tr>
@@ -118,8 +120,6 @@
 <br>
 <div>
     <h2 id="index-1">
-        <a id="index-1_num" href="#index-1">1.</a>
-        개요
     </h2>
     <hr>
     <div id="index-1_contents">
@@ -127,8 +127,6 @@
     </div>
 
     <h2 id="index-2">
-        <a id="index-2_num" href="#index-2">2.</a>
-        Github Desktop
     </h2>
     <hr>
     <div id="index-2_contents">
@@ -137,8 +135,6 @@
 
 
     <h2 id="index-3">
-        <a id="index-3_num" href="#index-3" class="index_num"> 3.</a>
-        Github Desktop 사용법
     </h2>
     <hr>
     <div id="index-3_contents">
