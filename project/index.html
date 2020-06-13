@@ -36,14 +36,18 @@
                 $(item).append('<a id="index-'+(index + 1)+'_num" href="#index-'+(index + 1)+'">'+array_index[index].index+'.</a>\n'+array_index[index].title);
             })
 
+            // 제목 부분 클릭 시 손가락 모양
             $('body > div > h2').addClass('index');
+            // 숫자 부분 밑줄 제거 및 파란색 유지
             $('body a').addClass('index_num');
+            // 목차 부분
             $('td:eq(0)').css({
                 border: '1px solid black',
                 padding: '14px',
                 paddingTop: '0px',
                 height: '200px'
             });
+            // 아이콘 부분
             $('td:eq(1)').css({
                 width: '500px',
                 verticalAlign: 'top'
@@ -118,22 +122,23 @@
 
 </div>
 <br>
+<!--본문-->
 <div>
+<!--    문단 1-->
     <h2 id="index-1">
     </h2>
     <hr>
     <div id="index-1_contents">
         내용
     </div>
-
+<!--    문단 2-->
     <h2 id="index-2">
     </h2>
     <hr>
     <div id="index-2_contents">
         내용
     </div>
-
-
+<!--    문단 3-->
     <h2 id="index-3">
     </h2>
     <hr>
