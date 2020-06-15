@@ -24,10 +24,14 @@ def get_mouth_pen_ratio(mouth_points, facial_landmarks):
         mouth_points[12]).y)  # 입의 최좌측 좌표
     right_point = (facial_landmarks.part(
         mouth_points[16]).x, facial_landmarks.part(mouth_points[16]).y)  # 입의 최우측 좌표
-    center_top = midpoint(facial_landmarks.part(
-        mouth_points[13]), facial_landmarks.part(mouth_points[14]))  # 입의 최상단 좌표
-    center_bottom = midpoint(facial_landmarks.part(
-        mouth_points[19]), facial_landmarks.part(mouth_points[18]))  # 입의 최하단 좌표
+    # center_top = midpoint(facial_landmarks.part(
+    #     mouth_points[13]), facial_landmarks.part(mouth_points[14]))  # 입의 최상단 좌표
+    # center_bottom = midpoint(facial_landmarks.part(
+    #     mouth_points[19]), facial_landmarks.part(mouth_points[18]))  # 입의 최하단 좌표
+    center_top = (facial_landmarks.part(
+        mouth_points[14]).x, facial_landmarks.part(mouth_points[14]).y)  # 입의 최상단 좌표
+    center_bottom = (facial_landmarks.part(
+        mouth_points[18]).x, facial_landmarks.part(mouth_points[18]).y)  # 입의 최하단 좌표
 
     # cv2.line(선분이 그려질 이미지, 선분의 시작점(x,y), 선분의 끝점(x,y), 선분의 색(B,G,R), 선 굵기(기본 1))
     hor_line = cv2.line(image, left_point, right_point,
@@ -83,7 +87,7 @@ while True:
 
         # 입의 비율 계산
         mouths = get_mouth_pen_ratio(mouth_points, landmarks)
-        
+
         # 입의 가로 길이가 세로 길이의 5배보다 작거나 같으면 입을 벌린 것으로 인식
         if mouths <= 5.0:
             if mouth_time_open == 0:
@@ -101,7 +105,7 @@ while True:
     cv2.putText(image, "Mouth open: " + str(count_mouth_open),
                 (50, 50), font, 2, (255, 0, 0))
     cv2.putText(image, "Mouth time: " + str(mouth_time),
-                (50, 100), font, 2, (255, 0, 0))    
+                (50, 100), font, 2, (255, 0, 0))
     cv2.putText(image, "Mouth open: " + str(mouth_time_open),
                 (50, 150), font, 2, (255, 0, 0))
     cv2.putText(image, "Mouth close: " + str(mouth_time_close),
