@@ -1,4 +1,5 @@
-
+<!-- 회원가입시 사진 업로드 -->
+<!-- upload_test.php -->
 <?php
   header("Content-Type:text/html;charset=utf-8");
   // php 에러 출력 안하기

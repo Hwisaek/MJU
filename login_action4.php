@@ -1,4 +1,5 @@
 <!-- 눈 깜빡임 감지 -->
+<!-- login_action4.php -->
 <?php
   session_start();
   $python = `python eye.py`;

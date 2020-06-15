@@ -1,4 +1,5 @@
 <!-- 게시물 내용 보기 -->
+<!-- view.php -->
 <?php
   // sql 연동
   $connect = mysqli_connect("localhost", "root", "", "facerecog");

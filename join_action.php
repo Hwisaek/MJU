@@ -1,3 +1,5 @@
+<!-- 회원가입 액션 -->
+<!-- join_action.php -->
 <?php
   // php 에러 출력 안하기
   error_reporting(0);

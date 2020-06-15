@@ -1,4 +1,5 @@
 <!-- 게시판 페이지 -->
+<!-- index.php -->
 <!DOCTYPE html>
 <html>
 

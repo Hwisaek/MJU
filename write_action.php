@@ -1,4 +1,5 @@
 <!-- 글쓰기 액션 -->
+<!-- write_action.php -->
 <?php
   $connect = mysqli_connect("localhost", "root", "", "facerecog") or die("fail");
 

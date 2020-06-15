@@ -1,4 +1,5 @@
 <!-- 글쓰기 페이지 -->
+<!-- write.php -->
 <body background="good.png">
   <?php
     session_start();

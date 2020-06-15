@@ -1,4 +1,5 @@
 <!-- 로그아웃 페이지 -->
+<!-- logout.php -->
 <?php
   session_start();
   $result = session_destroy();

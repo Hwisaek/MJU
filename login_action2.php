@@ -1,4 +1,5 @@
 <!-- 얼굴 인식 로그인 -->
+<!-- login_action2.php -->
 <?php
   session_start();
   $python = `python face_recog.py`;

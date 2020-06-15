@@ -1,5 +1,6 @@
-<!DOCTYPE>
 <!-- 로그인 페이지 -->
+<!-- login.php -->
+<!DOCTYPE>
 <html>
 
 <head>

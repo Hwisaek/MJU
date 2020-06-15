@@ -1,4 +1,5 @@
 <!-- 게시물 삭제 코드 -->
+<!-- delete.php -->
 <?php
   $number = $_GET['number'];
   echo $number;

@@ -1,4 +1,5 @@
 <!-- 입모양 감지 -->
+<!-- login_action3.php -->
 <?php
   session_start();
   $python = `python mouth.py`;
