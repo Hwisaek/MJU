@@ -1,0 +1,358 @@
+#1차과제
+print('"파이썬"'+"은 재미있는"+"'언어'"+ "입니다")
+print("내이름은 :"+" '홍길동"+'"')
+print("학년 :"+" 4")
+print("학번 :"+" 60201234")
+
+
+#2차과제
+#1번
+str1 = input('문자열 1: ')
+str2 = input('문자열 2: ')
+print(str1, str2)
+
+#2번
+km = int(input('차의 속도 입력(km) >> '))
+#1마일은 1.61킬로미터
+mile = km / 1.61 
+print(str(km) + '(km)은', mile, '마일(miles) 입니다.')
+
+#4번
+radius = 6378.1
+PI = 3.141592
+circum1 = 40120
+circum2 = 2 * 3.141592 * radius
+print('알려진 지구 둘레:', circum1)
+print('지구와 같은 원 둘레:', circum2)
+print('차이: ', circum1 - circum2, '(km)')
+
+#3차과제
+#1번
+str = input('문자열 입력 >> ')
+strLen = len(str)
+
+print('참조할 첨자: 0 ~ {}'.format(strLen-1))
+n = int(input('참조할 첨자 입력 >> '))
+
+print('문자열: %s, 길이: %d' % (str, strLen))
+print('참조 문자: %c' % str[n])
+
+#2번
+str = input('다섯 문자 이상의 문자열 입력 >> ')
+print('입력 문자열: %s' % str)
+
+print("첫 문자: %c" % str[:1])
+print("마지막 문자: %c" % str[-1:])
+print("첫 문자를 제외한 부분 문자열: %s" % str[1:])
+print("마지막 문자를 제외한 부분 문자열: %s" % str[:-1])
+print("맨 앞과 뒤의 두 문자씩를 제외한 부분 문자열: %s" % str[2:-2])
+print("문자 하나씩을 건너 뛴 부분 문자열: %s" % str[::2])
+print("역 문자열: %s" % str[::-1])
+
+#4차과제
+#3번
+zen = 'Beautiful is better than ugly.'
+print(zen)
+print('위 철학을 메소드 replace()를 사용하여 다음 철학으로 다시 저장')
+zen = zen.replace('Beautiful', 'Explicit')
+print(zen.replace('ugly', 'implicit'))
+
+#4번
+url = 'https://docs.python.org/3/tutorial'
+index = url.find(':')
+print(url[:index])
+index = url.find('//') + 2
+print(url[index: index + len('docs.python.org')])
+index = url.rfind('/') + 1
+print(url[index:])
+
+#5번
+time = input('시각 정보(16:30:15) 입력 >> ')
+hours, mins, secs = time.split(':')
+print('입력 시각 정보: %s' % time)
+print('{}시 {}분 {}초'.format(hours, mins, secs))
+
+#5차과제
+#7번
+n = -7
+print('10진수: {0:3d} 2진수: {1:8b} 8진수: {1:4o} 16진수: {1:2x}'.format(n, n & 0xff))
+n += 1
+print('10진수: {0:3d} 2진수: {1:8b} 8진수: {1:4o} 16진수: {1:2x}'.format(n, n & 0xff))
+n += 1
+print('10진수: {0:3d} 2진수: {1:8b} 8진수: {1:4o} 16진수: {1:2x}'.format(n, n & 0xff))
+n += 1
+print('10진수: {0:3d} 2진수: {1:8b} 8진수: {1:4o} 16진수: {1:2x}'.format(n, n & 0xff))
+n += 1
+print('10진수: {0:3d} 2진수: {1:8b} 8진수: {1:4o} 16진수: {1:2x}'.format(n, n & 0xff))
+n += 1
+print('10진수: {0:3d} 2진수: {1:8b} 8진수: {1:4o} 16진수: {1:2x}'.format(n, n & 0xff))
+n += 1
+print('10진수: {0:3d} 2진수: {1:8b} 8진수: {1:4o} 16진수: {1:2x}'.format(n, n & 0xff))
+n += 1
+print('10진수: {0:3d} 2진수: {1:8b} 8진수: {1:4o} 16진수: {1:2x}'.format(n, n & 0xff))
+
+
+#8번
+num = int(input('정수 입력 >> '))
+exp = int(input('2의 지수승 입력 >> '))
+#num = 24
+#exp = 3
+print()
+print('정수 {} >> {}, 결과: {}'.format(num, exp, num << exp))
+print('정수 {} * 2**{}, 결과: {}'.format(num, exp, num * 2**exp))
+print('이진수(32비트): {0:32b} 정수: {0}'.format(num))
+print('이진수(32비트): {:32b} 정수: {} << {}'.format(num << exp, num, exp))
+print('이진수(32비트): {:32b} 정수: {} * 2**{}'.format(num * 2**exp, num, exp))
+
+
+#6차과제
+#7번
+import random
+
+while True:
+    num1 = random.randint(1, 99);
+    num2 = random.randint(1, 99);
+    result = num1 * num2
+    print('%d * %d = %d' % (num1, num2, result))
+    print()
+    more = input('계속 y / n ? ')
+    if more in 'nN':
+        break
+
+#8번
+n = int(input('소수(prime number)인지를 판별한 2 이상의 정수 입력 >> '))
+cnt = 2
+for i in range(2, n // 2 + 1):
+    if n % i == 0:
+        cnt += 1
+        break
+        
+if cnt == 2:
+    print('정수 %d는 소수입니다.' % n)
+else:
+    print('정수 %d는 소수가 아닙니다.' % n)
+
+
+#7차과제
+#1번
+from random import randint
+
+lst = []
+for _ in range(9):
+    lst.append(randint(1, 99))
+
+print('리스트', lst)    
+print('정렬 리스트', sorted(lst))    
+print('역순 리스트', sorted(lst, reverse=True))  
+
+#2번
+korean = ('정렬', '초보자', '내포', '사전')
+english = ('sorting', 'novice', 'comprehension', 'dictionary')
+
+while True:
+  instr = input('찾을 단어 입력 ? ')
+  if instr in korean:
+      print(english[korean.index(instr)])
+  else:
+      print('%s: 사전에 없습니다.' % instr)
+      break
+
+#4번
+data = [ [1, 2, 3], 
+         [4, 5, 6],
+         [7, 8, 9] ]
+
+rsum = [0, 0, 0]
+csum = [0, 0, 0]
+
+for i in range(len(data)):
+    for j in range(len(data[0])):
+        rsum[i] += data[i][j]
+        csum[j] += data[i][j]
+        
+print('각 행의 합: ', rsum)    
+print('각 열의 합: ', csum)   
+
+
+# 9차 과제
+# 1번
+p = {'이름': '김영희', 
+     '전화번호': '010-3017-4468',
+     '성별': '여자',
+     '나이': 22,
+     '대학교': '한국대학교'} 
+    
+for key in p:
+    print('{}: {}'.format(key, p[key]))
+
+# 2번
+stocks = { '삼성에스디에스': 242000, '삼성전자': 47000 }
+stocks['엔씨소프트'] = 52600
+stocks['핸디소프트'] = 5120
+stocks.update(dict(골프존=215000, 기아=56300))
+print(stocks)
+while True:
+    which = input("주식 이름 ? ")
+    if which in stocks:
+        print('{}: {}'.format(which, stocks[which]))
+    else:
+        print('주식 이름이 없습니다.')
+        break
+
+# 10차 과제
+# 1번
+from random import choice
+#한글의 format 출력 문제로 '보'를 '보오'로 
+dcs = {'가위':'보오', '바위':'가위', '보오':'바위'}
+#출력에 필요한 단어를 구성하여 리스트로 생성
+tit = ['비김', '철수', '영희', '승자']
+#rock scissors paper
+rsp = ('가위', '바위', '보오')
+ 
+#승리 횟수를 저장
+cnt = {tit[0]:0, tit[1]:0, tit[2]:0}
+ 
+print('*' * 20)
+print('{:4} {:4} {:^5}'.format(tit[1], tit[2], tit[3]))
+print('*' * 20)
+ 
+#총 게임 횟수
+numgame = 20
+for _ in range(numgame):
+    #철수의 결정
+    cs = choice(rsp)
+    #영희 결정
+    yh = choice(rsp)
+    
+    #철수와 영희의 결정 출력
+    print('{:4} {:4}'.format(cs, yh), end = ' ')
+    
+    #비기는 조건
+    if cs == yh:
+        index = 0 #비김 출력
+    #철수가 이기는 조건
+    elif dcs[cs] == yh:
+        index = 1  #철수 출력
+    #영희가 이기는 조건
+    else: 
+        index = 2  #영희 출력
+    cnt[tit[index]] += 1 
+    print('{:3}{}'.format(tit[index], cnt[tit[index]])) 
+print()
+print('총 게임 회수: %d  비긴 회수: %d' % (numgame, cnt[tit[0]]))
+ 
+vgame = cnt[tit[1]] + cnt[tit[2]]
+print('철수 승률: {:.2f}'.format(cnt[tit[1]]/vgame))
+print('영희 승률: {:.2f}'.format(cnt[tit[2]]/vgame))
+
+
+# 2번
+from random import randint
+from random import sample
+ 
+A = set(sample(list(range(1, 21)), 5))
+B = set(sample(list(range(1, 21)), 5))
+print('A = {} '.format(A))
+print('B = {} '.format(B))
+print()
+ 
+print('A | B = {} '.format(A | B))
+print('A & B = {} '.format(A & B))
+print('A - B = {} '.format(A - B))
+print('A ^ B = {} '.format(A ^ B))
+
+
+#11차과제
+#1번
+def factorial(n):
+    gop = 1
+    for i in range(n):
+        gop *= (i+1)
+    return gop
+
+def fact-recursive(n):
+    if n==1:
+        return 1
+    return n*fact-recursive(n-1)
+
+n = 5
+print('%d! = %d' % (n, factorial(n)))
+n = 10
+print('%d! = %d' % (n, factorial(n)))
+n = 20
+print('%d! = %d' % (n, factorial(n)))
+
+n = 5
+print('%d! = %d' % (n, fact-recursive(n)))
+n = 10
+print('%d! = %d' % (n, fact-recursive(n)))
+n = 20
+print('%d! = %d' % (n, fact-recursive(n)))
+
+#2번
+def getinterest(money, rate, year):
+    return money * (1 + rate) ** year
+
+dep = 300000
+print("예금 원금:", dep)
+for i in range(2, 9, 2):
+    print('{}년 총액: {:.2f}'.format(i, getinterest(dep, 0.05, i)))
+
+
+#12차과제
+#4번
+planets = [('수성', 2439, 0.4), ('금성', 6052, 0.7), ('태양', 695000, 0), 
+           ('지구', 6378, 1), ('화성', 3390, 1.5), ('목성', 71492, 5.2)] 
+
+#행성의 크기(반지름)로 정렬
+print("태양계 행성의 크기(반지름)로 큰 것부터 정렬")
+planets.sort(key = lambda planet: planet[1], reverse=True)
+print(planets) 
+
+#태양과의 거리로 정렬
+print("태양계 행성의 태양과의 거리로 정렬")
+planets.sort(key = lambda planet: planet[2])
+print(planets) 
+
+#5번
+from random import sample
+
+celsius = sorted(sample(range(1, 101), 9))
+print('섭씨온도:', celsius)
+
+fahrenhite = list(map(lambda cels: cels * 9/5 + 32, celsius)) 
+print('화씨온도:', fahrenhite)
+
+for deg in zip(celsius, fahrenhite):
+    print('섭씨온도 {} => 화씨 {}'.format(deg[0], deg[1]))
+
+
+#13차 과제
+#1번
+import math 
+import random
+
+def getarea(r):
+    return r * r * math.pi
+
+radius = random.random() * 10
+raduis = round(radius, 2)
+print('원의 반지름: %.2f' % raduis)
+print('원주율 pi: %.4f' % math.pi)
+print('반지름 %.2f인 원의 면적은 %.2f' % (radius, getarea(radius)))
+
+#3번
+import turtle as t            
+
+colors = ['yellow', 'red', 'blue']
+
+t.setup(500, 500) #초기 원도의 크기 조정
+t.bgcolor('black')
+rep = 200
+t.speed(0) #최고 속도로 지정
+
+for i in range(rep):
+    t.color(colors[i % len(colors)])
+    t.width(i/rep + 1)
+    t.forward(i * 2)
+    t.left(119)
