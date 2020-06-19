@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <script>
+        var xml = "";
+        xml += "<CATALOG>";
+        xml += "<CD>";
+        xml += " <TITLE>Empire Burlesque</TITLE>";
+        xml += " <ARTIST>Bob Dylan</ARTIST>";
+        xml += " <COUNTRY>USA</COUNTRY>";
+        xml += " <COMPANY>Columbia</COMPANY>";
+        xml += " <PRICE>10.90</PRICE>";
+        xml += " <YEAR>1985</YEAR>";
+        xml += "</CD>";
+        xml += "<CD>";
+        xml += " <TITLE>Hide your heart</TITLE>";
+        xml += " <ARTIST>Bonnie Tyler</ARTIST>";
+        xml += " <COUNTRY>UK</COUNTRY>";
+        xml += " <COMPANY>CBS Records</COMPANY>";
+        xml += " <PRICE>9.90</PRICE>";
+        xml += " <YEAR>1988</YEAR>";
+        xml += "</CD>";
+        xml += "</CATALOG>";
+
+
+        $(document).ready(function () {
+            var xmlDoc = $.parseXML(xml);
+            var output = '<table border="1"><th>ARTIST</th><th>COUNTRY<th>COUNTRY</th>';
+            $(xmlDoc).find('CD').each(function (index) {
+                output += ' <tr><td>' + $(this).find('ARTIST').text() + '</td>';
+                output += '<td>'+  $(this).find('COUNTRY').text() + '</td>';
+                output += '<td>'+  $(this).find('TITLE').text() + '</td></tr>';
+            });
+            var intID = setInterval(function () {
+                $('h1#header').click(function () {
+                    $('h1#header').html(output);
+                    clearInterval(intID);
+                })
+                document.body.style.visibility = "hidden";
+                setTimeout(function () {
+                    document.body.style.visibility = "visible"
+                }, 500);
+            }, 1000)
+        });
+    </script>
+</head>
+<body>
+<h1 id="header">Click</h1>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+
+            var divtxt = '<table border="1" style="background: gray"><th>radius</th><th>Area<th>Circumstance</th>';
+            function makeCircle(radius){
+                var willReturn = {
+                    r : radius,
+
+                    getArea: function(){
+                        return  Math.round(Math.PI * this.r * this.r);
+                    },
+                    getCircumstance: function(){
+                        return Math.round(2 * Math.PI * this.r);
+                    },
+
+                    toString: function(){
+
+                        var output = ' <tr><td>' + this.r + '</td>';
+                        output += '<td>'+  this.getArea() + '</td>';
+                        output += '<td>'+  this.getCircumstance() + '</td></tr>';
+
+                        return output;
+                    }
+                };
+                return willReturn;
+            }
+
+            var c1 = makeCircle(100);
+            var c2 = makeCircle(300);
+            var div = document.getElementById('tableid');
+            div.innerHTML = divtxt + c1.toString() + c2.toString();
+        }
+
+
+    </script>
+
+</head>
+<body>
+<div id="tableid">11</div>
+</body>
+</html>
