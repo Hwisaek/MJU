@@ -18,7 +18,6 @@ reg [0:15] R_in[0:15], R_out[0:15];
 reg [0:15] hwdata_r;
 reg hreq_r;
 
-
 assign hwdata = hwdata_r,
         haddr = haddr_r,
         hreq = hreq_r;
@@ -26,17 +25,18 @@ assign hwdata = hwdata_r,
 // hreq 작동        
 initial
 begin
-    hreq_r <= 1;
+    hreq_r <= 0;
 end
-//always @ (posedge clk)
-//    #1 case (state)
-//        S0: hreq_r <= 1;
-//        S1: if(opcode == ST)
-//                hreq_r <= 1;
-//            else
-//                hreq_r <= 0;
-//        S2: hreq_r <= 0;
-//    endcase
+always @ (posedge clk)
+    case (opcode)
+        ADD: hreq_r <= 1;
+        SUB: hreq_r <= 1;
+        AND: hreq_r <= 1;
+        OR: hreq_r <= 1;
+        LD: hreq_r <= 1;
+        ST: hreq_r <= 1;
+        default:  hreq_r <= 0;
+    endcase
     
 // 상태기
 always @ (state)
@@ -72,41 +72,41 @@ always @ (state, hrdata)
         else if(state == S1) // 상태가 S1 인 경우 
         begin
             case (opcode)
-                ADD: R_in[oper3] = R_out[oper1] + R_out[oper2];
-                SUB: R_in[oper3] = R_out[oper1] - R_out[oper2];
-                AND: R_in[oper3] = R_out[oper1] & R_out[oper2];
-                OR: R_in[oper3] = R_out[oper1] | R_out[oper2];
-                LD: #1 R_in[oper1] = haddr; // haddr를 
-                ST: haddr_r = 8'b11111111;
+                ADD: R_in[oper3] <= R_out[oper1] + R_out[oper2];
+                SUB: R_in[oper3] <= R_out[oper1] - R_out[oper2];
+                AND: R_in[oper3] <= R_out[oper1] & R_out[oper2];
+                OR: R_in[oper3] <= R_out[oper1] | R_out[oper2];
+                LD:  R_in[oper1] <= haddr; // haddr를 
+                ST: haddr_r <= 8'b11111111;
             endcase
         end
         else if(state == S2)
-            hwdata_r = R_out[oper1];
+            hwdata_r <= R_out[oper1];
     end
 
 // PC
 initial
-    haddr_r_next = 0;
+    haddr_r_next <= 0;
 always @ ( posedge clk, negedge reset_n) // 클럭의 상승엣지랑 reset_n == 0 될 때마다 실행
 begin
     if(~reset_n) // 리셋시 0으로 설정
-        haddr_r_next = 0;
+        haddr_r_next <= 0;
     else // 리셋신호가 0인 경우 1씩 증가 
-        if((state == S1 && opcode != ST )|| state == S2 ) // if 를 적용 안하면 S0, S1 한번 순환할때 2씩 증가함 
-            haddr_r_next = haddr_r_next+1;
+        if(((state == S1 && opcode != ST )|| state == S2 )&& hgrant == 1) // if 를 적용 안하면 S0, S1 한번 순환할때 2씩 증가함 
+            haddr_r_next <= haddr_r_next+1;
 end
 always @ (state)
 begin
     if (state == S1 && (opcode == LD)) // LD를 하는 경우에는 s0일때 들어온 값의 뒷부분을 haddr로 다시 메모리에 보내서 해당 주소의 값을 받아옴
-        haddr_r = mem_addr;
+        haddr_r <= mem_addr;
     else if (state == S1 && ( opcode == ST))
-        haddr_r = 8'b11111111;
+        haddr_r <= 8'b11111111;
     else if (state == S2)
     begin
-        haddr_r = mem_addr;
+        haddr_r <= mem_addr;
     end
     else // LD를 하지 않는 경우에는 그대로 1씩 증가 
-        haddr_r = haddr_r_next;
+        haddr_r <= haddr_r_next;
 end
 
 
