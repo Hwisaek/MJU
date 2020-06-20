@@ -22,12 +22,24 @@ reg hreq_r;
 assign hwdata = hwdata_r,
         haddr = haddr_r,
         hreq = hreq_r;
-// hreq 초기화        
+        
+// hreq 작동        
 initial
-    hreq_r = 0;
+begin
+    hreq_r <= 1;
+end
+//always @ (posedge clk)
+//    #1 case (state)
+//        S0: hreq_r <= 1;
+//        S1: if(opcode == ST)
+//                hreq_r <= 1;
+//            else
+//                hreq_r <= 0;
+//        S2: hreq_r <= 0;
+//    endcase
     
 // 상태기
- always @ (state)
+always @ (state)
     case (state)
         S0: next_state <= S1;
         S1: if(opcode == ST)
@@ -49,13 +61,13 @@ always @ (state, hrdata)
         if (state == S0)
             case (opcode) 
                 // ADD, SUB, AND, OR 일 때는 피연산자를 3개로 나눔 
-                ADD: begin oper1 = hrdata[4:7]; oper2 = hrdata[8:11]; oper3 = hrdata[12:15]; hreq_r = 0; end
-                SUB: begin oper1 = hrdata[4:7]; oper2 = hrdata[8:11]; oper3 = hrdata[12:15]; hreq_r = 0; end
-                AND: begin oper1 = hrdata[4:7]; oper2 = hrdata[8:11]; oper3 = hrdata[12:15]; hreq_r = 0; end
-                OR: begin oper1 = hrdata[4:7]; oper2 = hrdata[8:11]; oper3 = hrdata[12:15]; hreq_r = 0; end
+                ADD: begin oper1 = hrdata[4:7]; oper2 = hrdata[8:11]; oper3 = hrdata[12:15]; end
+                SUB: begin oper1 = hrdata[4:7]; oper2 = hrdata[8:11]; oper3 = hrdata[12:15]; end
+                AND: begin oper1 = hrdata[4:7]; oper2 = hrdata[8:11]; oper3 = hrdata[12:15]; end
+                OR: begin oper1 = hrdata[4:7]; oper2 = hrdata[8:11]; oper3 = hrdata[12:15];  end
                 // LD, ST 는 oper1에 레지스터 주소를 저장, 뒷부분에는 메모리 주소를 저장
-                LD: begin oper1 = hrdata[4:7]; mem_addr = hrdata[8:15];  hreq_r = 1;end
-                ST: begin oper1 = hrdata[4:7]; mem_addr = hrdata[8:15];  hreq_r = 1;end
+                LD: begin oper1 = hrdata[4:7]; mem_addr = hrdata[8:15];  end
+                ST: begin oper1 = hrdata[4:7]; mem_addr = hrdata[8:15];  end
             endcase
         else if(state == S1) // 상태가 S1 인 경우 
         begin
@@ -198,11 +210,15 @@ endmodule
 // 아비터 모듈 -----------------------------------------------------------------------------------------------------------------
 module arbiter(hgrant, hreq1, hreq2, clk, reset_n);
 output hgrant;
-input hreq1, hreq2, reset_n, clk;
+input hreq1, hreq2, clk, reset_n;
 
 reg hgrant_r;
+assign hgrant = hgrant_r;
 
-always @ (clk)
+initial
+    hgrant_r = 1;
+    
+always @ (*)
     if(~reset_n)
         hgrant_r <= 1;
     else
@@ -210,8 +226,7 @@ always @ (clk)
             hgrant_r <= 1;
         else
             hgrant_r <= 0;
-    
-assign hgrant = hgrant_r;
+
 endmodule
 
 // 시뮬레이션 모듈 ------------------------------------------------------------------------------------------------------------------
@@ -223,14 +238,15 @@ wire hreq1, hreq2, hgrant;
 
 reg [0:7] haddr;
 reg [0:15] hwdata;
-reg clk, reset_n, hgrant_n, hgrant_r;
+reg clk, reset_n, hgrant_n;
 
-assign hgrant = hgrant_r;
+//reg hgrant_r;
+//assign hgrant = hgrant_r;
 
 myCPU CPU1(haddr1, hwdata1, hreq1, hgrant, hrdata1, clk, reset_n);
 myCPU CPU2(haddr2, hwdata2, hreq2, hgrant_n, hrdata2, clk, reset_n);
 myMem Mem(hrdata, haddr, hwdata, clk, reset_n);
-// arbiter Arb(hgrant, hreq1, hreq2, clk, reset_n);
+arbiter Arb(hgrant, hreq1, hreq2, clk, reset_n);
 
 always @ (*) // hgrant = 1 -> CPU1 작동 , hgrant = 0 -> CPU2 작동 
 begin
@@ -251,11 +267,11 @@ end
 
 initial
 begin
-    hgrant_r <= 1;
     reset_n <= 0;
     reset_n = #40 1;
-    #1000 hgrant_r <= 0;
-    #1000 hgrant_r <= 1;
+//    hgrant_r <= 1;
+//    #1000 hgrant_r <= 0;
+//    #1000 hgrant_r <= 1;
 end
 
 initial

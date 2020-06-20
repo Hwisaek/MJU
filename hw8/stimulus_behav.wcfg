@@ -13,13 +13,13 @@
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
       <ZoomEndTime time="1000001fs"></ZoomEndTime>
-      <Cursor1Time time="466721fs"></Cursor1Time>
+      <Cursor1Time time="197080fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="175"></NameColumnWidth>
-      <ValueColumnWidth column_width="134"></ValueColumnWidth>
+      <ValueColumnWidth column_width="122"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="22" />
+   <WVObjectSize size="19" />
    <wvobject fp_name="/stimulus/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -27,6 +27,10 @@
    <wvobject fp_name="/stimulus/reset_n" type="logic">
       <obj_property name="ElementShortName">reset_n</obj_property>
       <obj_property name="ObjectShortName">reset_n</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stimulus/hgrant" type="logic">
+      <obj_property name="ElementShortName">hgrant</obj_property>
+      <obj_property name="ObjectShortName">hgrant</obj_property>
    </wvobject>
    <wvobject fp_name="/stimulus/haddr" type="array">
       <obj_property name="ElementShortName">haddr[0:7]</obj_property>
@@ -36,77 +40,60 @@
       <obj_property name="ElementShortName">hwdata[0:15]</obj_property>
       <obj_property name="ObjectShortName">hwdata[0:15]</obj_property>
    </wvobject>
+   <wvobject fp_name="/stimulus/hreq1" type="logic">
+      <obj_property name="ElementShortName">hreq1</obj_property>
+      <obj_property name="ObjectShortName">hreq1</obj_property>
+   </wvobject>
    <wvobject fp_name="/stimulus/hrdata" type="array">
       <obj_property name="ElementShortName">hrdata[0:15]</obj_property>
       <obj_property name="ObjectShortName">hrdata[0:15]</obj_property>
    </wvobject>
-   <wvobject fp_name="/stimulus/CPU/state" type="array">
+   <wvobject fp_name="/stimulus/haddr1" type="array">
+      <obj_property name="ElementShortName">haddr1[0:7]</obj_property>
+      <obj_property name="ObjectShortName">haddr1[0:7]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stimulus/hwdata1" type="array">
+      <obj_property name="ElementShortName">hwdata1[0:15]</obj_property>
+      <obj_property name="ObjectShortName">hwdata1[0:15]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stimulus/hrdata1" type="array">
+      <obj_property name="ElementShortName">hrdata1[0:15]</obj_property>
+      <obj_property name="ObjectShortName">hrdata1[0:15]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stimulus/CPU1/state" type="array">
       <obj_property name="ElementShortName">state[0:1]</obj_property>
       <obj_property name="ObjectShortName">state[0:1]</obj_property>
    </wvobject>
-   <wvobject fp_name="/stimulus/CPU/opcode" type="array">
-      <obj_property name="ElementShortName">opcode[0:3]</obj_property>
-      <obj_property name="ObjectShortName">opcode[0:3]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/stimulus/CPU/R_out" type="array">
+   <wvobject fp_name="/stimulus/CPU1/R_out" type="array">
       <obj_property name="ElementShortName">R_out[0:15][0:15]</obj_property>
       <obj_property name="ObjectShortName">R_out[0:15][0:15]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
    </wvobject>
-   <wvobject fp_name="/stimulus/Mem/haddr" type="array">
-      <obj_property name="ElementShortName">haddr[0:7]</obj_property>
-      <obj_property name="ObjectShortName">haddr[0:7]</obj_property>
+   <wvobject fp_name="/stimulus/hreq2" type="logic">
+      <obj_property name="ElementShortName">hreq2</obj_property>
+      <obj_property name="ObjectShortName">hreq2</obj_property>
    </wvobject>
-   <wvobject fp_name="/stimulus/Mem/hrdata" type="array">
-      <obj_property name="ElementShortName">hrdata[0:15]</obj_property>
-      <obj_property name="ObjectShortName">hrdata[0:15]</obj_property>
+   <wvobject fp_name="/stimulus/haddr2" type="array">
+      <obj_property name="ElementShortName">haddr2[0:7]</obj_property>
+      <obj_property name="ObjectShortName">haddr2[0:7]</obj_property>
    </wvobject>
-   <wvobject fp_name="/stimulus/Mem/hwdata" type="array">
-      <obj_property name="ElementShortName">hwdata[0:15]</obj_property>
-      <obj_property name="ObjectShortName">hwdata[0:15]</obj_property>
+   <wvobject fp_name="/stimulus/hwdata2" type="array">
+      <obj_property name="ElementShortName">hwdata2[0:15]</obj_property>
+      <obj_property name="ObjectShortName">hwdata2[0:15]</obj_property>
    </wvobject>
-   <wvobject fp_name="/stimulus/Mem/state" type="logic">
-      <obj_property name="ElementShortName">state</obj_property>
-      <obj_property name="ObjectShortName">state</obj_property>
+   <wvobject fp_name="/stimulus/hrdata2" type="array">
+      <obj_property name="ElementShortName">hrdata2[0:15]</obj_property>
+      <obj_property name="ObjectShortName">hrdata2[0:15]</obj_property>
    </wvobject>
-   <wvobject fp_name="/stimulus/Mem/next_state" type="logic">
-      <obj_property name="ElementShortName">next_state</obj_property>
-      <obj_property name="ObjectShortName">next_state</obj_property>
+   <wvobject fp_name="/stimulus/CPU2/state" type="array">
+      <obj_property name="ElementShortName">state[0:1]</obj_property>
+      <obj_property name="ObjectShortName">state[0:1]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stimulus/CPU2/R_out" type="array">
+      <obj_property name="ElementShortName">R_out[0:15][0:15]</obj_property>
+      <obj_property name="ObjectShortName">R_out[0:15][0:15]</obj_property>
    </wvobject>
    <wvobject fp_name="/stimulus/Mem/M" type="array">
       <obj_property name="ElementShortName">M[0:199][0:15]</obj_property>
       <obj_property name="ObjectShortName">M[0:199][0:15]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/stimulus/Mem/M[0]" type="array">
-      <obj_property name="ElementShortName">[0][0:15]</obj_property>
-      <obj_property name="ObjectShortName">[0][0:15]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/stimulus/Mem/M[2]" type="array">
-      <obj_property name="ElementShortName">[2][0:15]</obj_property>
-      <obj_property name="ObjectShortName">[2][0:15]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/stimulus/Mem/M[4]" type="array">
-      <obj_property name="ElementShortName">[4][0:15]</obj_property>
-      <obj_property name="ObjectShortName">[4][0:15]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/stimulus/Mem/M[6]" type="array">
-      <obj_property name="ElementShortName">[6][0:15]</obj_property>
-      <obj_property name="ObjectShortName">[6][0:15]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/stimulus/Mem/M[8]" type="array">
-      <obj_property name="ElementShortName">[8][0:15]</obj_property>
-      <obj_property name="ObjectShortName">[8][0:15]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/stimulus/Mem/M[10]" type="array">
-      <obj_property name="ElementShortName">[10][0:15]</obj_property>
-      <obj_property name="ObjectShortName">[10][0:15]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/stimulus/Mem/M[100]" type="array">
-      <obj_property name="ElementShortName">[100][0:15]</obj_property>
-      <obj_property name="ObjectShortName">[100][0:15]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/stimulus/Mem/M[102]" type="array">
-      <obj_property name="ElementShortName">[102][0:15]</obj_property>
-      <obj_property name="ObjectShortName">[102][0:15]</obj_property>
    </wvobject>
 </wave_config>
