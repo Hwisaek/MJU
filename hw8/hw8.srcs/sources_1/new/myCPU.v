@@ -2,24 +2,28 @@
 
 module myCPU(haddr, hwdata, hrdata, clk, reset_n);
 output [0:7] haddr;
-output [0:23] hwdata;
+output [0:15] hwdata;
 input [0:15] hrdata;
 input clk, reset_n; // reset_n == 0 인 경우 리셋 
 
-parameter S0 = 0, S1 = 1, // S0 = HRDATA 값을 분석 , S1 = opcode에 따라 수행
+parameter S0 = 0, S1 = 1, S2 = 2,// S0 = HRDATA 값을 분석 , S1 = opcode 수행, ST인 경우 255 전송, S2 = 메모리에 주소와 값 전송하여 메모리에 값 쓰기
           ADD = 0, SUB = 1, AND = 2, OR = 3, LD = 4, ST = 5;
-          
+         
 reg [0:1] state, next_state;
 reg [0:7] haddr_r, haddr_r_next; // 모듈 연결시 오류 발생 가능성이 있으므로 레지스터를 따로 지정
 reg [0:3] opcode, oper1, oper2, oper3;
 reg [0:7] mem_addr;
 reg [0:15] R_in[0:15], R_out[0:15];
-reg [0:23] hwdata_r;
+reg [0:15] hwdata_r;
 // 상태기
  always @ (state)
     case (state)
         S0: next_state <= S1;
-        S1: next_state <= S0;
+        S1: if(opcode == ST)
+                next_state <= S2;
+            else
+                next_state <= S0;
+        S2: next_state <= S0;
     endcase
 always @ (posedge clk)
     if(~reset_n)
@@ -42,7 +46,7 @@ always @ (state, hrdata)
                 LD: begin oper1 = hrdata[4:7]; mem_addr = hrdata[8:15]; end
                 ST: begin oper1 = hrdata[4:7]; mem_addr = hrdata[8:15];  end
             endcase
-        else // 상태가 S1 인 경우 
+        else if(state == S1) // 상태가 S1 인 경우 
         begin
             case (opcode)
                 ADD: R_in[oper3] = R_out[oper1] + R_out[oper2];
@@ -50,9 +54,11 @@ always @ (state, hrdata)
                 AND: R_in[oper3] = R_out[oper1] & R_out[oper2];
                 OR: R_in[oper3] = R_out[oper1] | R_out[oper2];
                 LD: #1 R_in[oper1] = haddr; // haddr를 
-                ST: hwdata_r = {mem_addr, R_out[oper1]};
+                ST: haddr_r = 8'b11111111;
             endcase
         end
+        else if(state == S2)
+            hwdata_r = R_out[oper1];
     end
 assign hwdata = hwdata_r;
 
@@ -64,13 +70,19 @@ begin
     if(~reset_n) // 리셋시 0으로 설정
         haddr_r_next = 0;
     else // 리셋신호가 0인 경우 1씩 증가 
-        if(state == S1) // if 를 적용 안하면 S0, S1 한번 순환할때 2씩 증가함 
+        if((state == S1 && opcode != ST )|| state == S2 ) // if 를 적용 안하면 S0, S1 한번 순환할때 2씩 증가함 
             haddr_r_next = haddr_r_next+1;
 end
 always @ (state)
 begin
     if (state == S1 && (opcode == LD)) // LD를 하는 경우에는 s0일때 들어온 값의 뒷부분을 haddr로 다시 메모리에 보내서 해당 주소의 값을 받아옴
         haddr_r = mem_addr;
+    else if (state == S1 && ( opcode == ST))
+        haddr_r = 8'b11111111;
+    else if (state == S2)
+    begin
+        haddr_r = mem_addr;
+    end
     else // LD를 하지 않는 경우에는 그대로 1씩 증가 
         haddr_r = haddr_r_next;
 end
@@ -103,17 +115,42 @@ end
 
 endmodule
 
-module myMem(hrdata, haddr, hwdata);
+
+// 메모리 모듈 ---------------------------------------------------------------------------------------------
+module myMem(hrdata, haddr, hwdata, clk, reset_n);
 output [0:15] hrdata;
 input [0:7] haddr;
-input [0:23] hwdata;
+input [0:15] hwdata;
+input clk, reset_n;
 reg [0:15] M[0:199], hrdata_r;
 integer count;
 wire [0:15] data;
 wire [0:7] addr;
-assign {addr, data} = hwdata;
+assign addr = haddr;
+assign data = hwdata;
+
+reg state, next_state;
+parameter S0 = 0, S1 = 1;// S0 = 주소가 255가 아닌 모든 경우  , S1 = ST 인 경우/주소로 255가 들어올 때  
+
+// 상태기
+ always @ (state)
+    case (state)
+        S0: if(haddr == 8'hff)
+                next_state <= S1;
+            else
+                next_state <= S0;
+        S1: next_state <= S0;
+    endcase
+always @ (posedge clk)
+    if(~reset_n)
+        next_state <= S0;
+    else
+        state <= next_state;
+
 initial
 begin
+    for ( count = 0; count < 100; count = count + 1)
+            M[count] = 0;
     M[0] = 16'h001A;
     M[2] = 16'h131B;
     M[4] = 16'h213C;
@@ -122,29 +159,52 @@ begin
     M[10] = 16'h5F66;
     for ( count = 100; count < 200; count = count + 1)
         M[count] = count;
+    if (~reset_n) // 메모리 초기화
+        begin
+            for ( count = 0; count < 100; count = count + 1)
+            M[count] = 0;
+            M[0] = 16'h001A;
+            M[2] = 16'h131B;
+            M[4] = 16'h213C;
+            M[6] = 16'h312D;
+            M[8] = 16'h4E64;
+            M[10] = 16'h5F66;
+            for ( count = 100; count < 200; count = count + 1)
+            M[count] = count;
+        end
 end
 
-always @ (*)
-    begin
-        hrdata_r = M[haddr];
-    end
+//// 메모레의 데이터 전송 
+//always @ (posedge clk, negedge reset_n)
+//    begin
+//        hrdata_r = M[haddr];
+//    end
 
-// hwdata 수행
-always @ (hwdata)
-    if(addr > 7'd99)
-        M[addr] = data;
+//// hwdata 수행
+//always @ (hwdata)
+//    if(addr > 7'd99)
+//        M[addr] = data;
     
+
+always @ (posedge clk, negedge reset_n, hwdata)
+    if (state == S0)
+        hrdata_r = M[haddr];
+    else if (state == S1)    
+        M[addr] = data;
+        
 assign hrdata = hrdata_r;
 endmodule
 
+
+// 시뮬레이션 모듈 ------------------------------------------------------------------------------------------------------------------
 module stimulus;
 wire [0:7] haddr;
-wire [0:23] hwdata;
+wire [0:15] hwdata;
 wire [0:15] hrdata;
 reg clk, reset_n;
 
 myCPU CPU(haddr, hwdata, hrdata, clk, reset_n);
-myMem Mem(hrdata, haddr, hwdata);
+myMem Mem(hrdata, haddr, hwdata, clk, reset_n);
 
 initial
 begin
