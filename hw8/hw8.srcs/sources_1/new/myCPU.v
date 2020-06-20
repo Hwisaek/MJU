@@ -1,10 +1,11 @@
 `timescale 1ns / 1ps
 
-module myCPU(haddr, hwdata, hrdata, clk, reset_n);
+module myCPU(haddr, hwdata, hreq, hgrant, hrdata, clk, reset_n);
 output [0:7] haddr;
 output [0:15] hwdata;
+output hreq;
 input [0:15] hrdata;
-input clk, reset_n; // reset_n == 0 인 경우 리셋 
+input clk, reset_n, hgrant; // reset_n == 0 인 경우 리셋 
 
 parameter S0 = 0, S1 = 1, S2 = 2,// S0 = HRDATA 값을 분석 , S1 = opcode 수행, ST인 경우 255 전송, S2 = 메모리에 주소와 값 전송하여 메모리에 값 쓰기
           ADD = 0, SUB = 1, AND = 2, OR = 3, LD = 4, ST = 5;
@@ -15,6 +16,13 @@ reg [0:3] opcode, oper1, oper2, oper3;
 reg [0:7] mem_addr;
 reg [0:15] R_in[0:15], R_out[0:15];
 reg [0:15] hwdata_r;
+reg hreq_r;
+
+
+assign hwdata = hwdata_r,
+        haddr = haddr_r,
+        hreq = hreq_r;
+        
 // 상태기
  always @ (state)
     case (state)
@@ -60,7 +68,6 @@ always @ (state, hrdata)
         else if(state == S2)
             hwdata_r = R_out[oper1];
     end
-assign hwdata = hwdata_r;
 
 // PC
 initial
@@ -86,7 +93,6 @@ begin
     else // LD를 하지 않는 경우에는 그대로 1씩 증가 
         haddr_r = haddr_r_next;
 end
-assign haddr = haddr_r;
 
 
 // 레지스터
@@ -173,20 +179,9 @@ begin
             M[count] = count;
         end
 end
-
-//// 메모레의 데이터 전송 
-//always @ (posedge clk, negedge reset_n)
-//    begin
-//        hrdata_r = M[haddr];
-//    end
-
-//// hwdata 수행
-//always @ (hwdata)
-//    if(addr > 7'd99)
-//        M[addr] = data;
     
 
-always @ (posedge clk, negedge reset_n, hwdata)
+always @ (posedge clk)
     if (state == S0)
         hrdata_r = M[haddr];
     else if (state == S1)    
@@ -196,15 +191,48 @@ assign hrdata = hrdata_r;
 endmodule
 
 
+// 아비터 모듈 -----------------------------------------------------------------------------------------------------------------
+module arbiter(hgrant, hreq1, hreq2);
+output hgrant;
+input hreq1, hreq2;
+
+reg hgrant_r;
+
+always @ (hreq1, hreq2)
+    if(hreq1)
+        hgrant_r = 1;
+    else
+        hgrant_r = 0;
+    
+assign hgrant = hgrant_r;
+endmodule
+
 // 시뮬레이션 모듈 ------------------------------------------------------------------------------------------------------------------
 module stimulus;
-wire [0:7] haddr;
-wire [0:15] hwdata;
-wire [0:15] hrdata;
-reg clk, reset_n;
+wire [0:7] haddr1, haddr2;
+wire [0:15] hwdata1, hwdata2, hrdata;
+reg [0:15] hrdata1, hrdata2;
+wire hreq1, hreq2, hgrant;
 
-myCPU CPU(haddr, hwdata, hrdata, clk, reset_n);
+reg [0:7] haddr;
+reg [0:15] hwdata;
+reg clk, reset_n, hgrant_n;
+
+myCPU CPU1(haddr1, hwdata1, hreq1, hgrant, hrdata1, clk, reset_n);
+myCPU CPU2(haddr2, hwdata2, hreq2, hgrant_n, hrdata2, clk, reset_n);
 myMem Mem(hrdata, haddr, hwdata, clk, reset_n);
+arbiter Arb(hgrant, hreq1, hreq2);
+
+always @ (hgrant) // hgrant = 1 -> CPU1 작동 , hgrant = 0 -> CPU2 작동 
+begin
+    hgrant_n <= ~hgrant;
+    haddr <= hgrant? haddr1 : haddr2;
+    hwdata <= hgrant? hwdata1 : hwdata2;
+    case(hgrant)
+        1: hrdata1 = hrdata;
+        0: hrdata2 = hrdata;
+    endcase
+end
 
 initial
 begin
