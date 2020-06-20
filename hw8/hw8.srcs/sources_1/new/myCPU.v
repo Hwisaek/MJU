@@ -27,32 +27,51 @@ initial
 begin
     hreq_r <= 0;
 end
-always @ (posedge clk)
-    case (opcode)
-        ADD: hreq_r <= 1;
-        SUB: hreq_r <= 1;
-        AND: hreq_r <= 1;
-        OR: hreq_r <= 1;
-        LD: hreq_r <= 1;
-        ST: hreq_r <= 1;
-        default:  hreq_r <= 0;
-    endcase
+//always @ (posedge clk)
+//    case (state)
+//        S0: hreq_r <= 1;
+//        S1: hreq_r <= 0;
+//        S2: hreq_r <= 0;
+//    endcase
+//    case (opcode)
+//        ADD: hreq_r <= 1;
+//        SUB: hreq_r <= 1;
+//        AND: hreq_r <= 1;
+//        OR: hreq_r <= 1;
+//        LD: hreq_r <= 1;
+//        ST: hreq_r <= 1;
+//        default:  hreq_r <= 0;
+//    endcase
     
 // 상태기
-always @ (state)
-    case (state)
-        S0: next_state <= S1;
-        S1: if(opcode == ST)
-                next_state <= S2;
-            else
+always @ (state, hgrant)
+    if(hgrant ==1)
+        case (state)
+            S0: begin
+                next_state <= S1;
+                hreq_r <= 1;
+                end
+            S1: if(opcode == ST)
+                begin
+                    next_state <= S2;
+                    hreq_r <= 1;
+                end
+                else
+                begin
+                    next_state <= S0;
+                    hreq_r <= 0;
+                end
+            S2: begin
                 next_state <= S0;
-        S2: next_state <= S0;
-    endcase
+                hreq_r <= 0;
+                end
+        endcase
 always @ (posedge clk)
-    if(~reset_n)
-        next_state <= S0;
-    else
-        state <= next_state;
+    if(hgrant)
+        if(~reset_n)
+            next_state <= S0;
+        else
+            state <= next_state;
 
 // hrdata 분석
 always @ (state, hrdata)
@@ -185,7 +204,7 @@ begin
     if (~reset_n) // 메모리 초기화
         begin
             for ( count = 0; count < 100; count = count + 1)
-            M[count] = 0;
+                M[count] = 0;
             M[0] = 16'h001A;
             M[2] = 16'h131B;
             M[4] = 16'h213C;
@@ -213,19 +232,35 @@ output hgrant;
 input hreq1, hreq2, clk, reset_n;
 
 reg hgrant_r;
+reg state;
 assign hgrant = hgrant_r;
 
 initial
-    hgrant_r = 1;
-    
+begin
+    state = 0;
+    hgrant_r = 0;
+end
+
 always @ (*)
     if(~reset_n)
         hgrant_r <= 1;
     else
-        if(hreq1)
-            hgrant_r <= 1;
-        else
-            hgrant_r <= 0;
+        if(state == 1)
+            if(hreq1)
+                hgrant_r <= 1;
+            else
+            begin
+                hgrant_r <= 0;
+                state = 0;
+            end
+        else if (state == 0)
+            if(hreq2)
+                hgrant_r <= 0;
+            else
+            begin
+                hgrant_r <= 1;
+                state = 1;
+            end
 
 endmodule
 
