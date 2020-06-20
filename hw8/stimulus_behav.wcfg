@@ -12,14 +12,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="1000000fs"></ZoomEndTime>
-      <Cursor1Time time="60000fs"></Cursor1Time>
+      <ZoomEndTime time="1000001fs"></ZoomEndTime>
+      <Cursor1Time time="466721fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="175"></NameColumnWidth>
-      <ValueColumnWidth column_width="138"></ValueColumnWidth>
+      <ValueColumnWidth column_width="134"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="20" />
+   <WVObjectSize size="22" />
    <wvobject fp_name="/stimulus/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -53,6 +53,10 @@
       <obj_property name="ObjectShortName">R_out[0:15][0:15]</obj_property>
       <obj_property name="isExpanded"></obj_property>
    </wvobject>
+   <wvobject fp_name="/stimulus/Mem/haddr" type="array">
+      <obj_property name="ElementShortName">haddr[0:7]</obj_property>
+      <obj_property name="ObjectShortName">haddr[0:7]</obj_property>
+   </wvobject>
    <wvobject fp_name="/stimulus/Mem/hrdata" type="array">
       <obj_property name="ElementShortName">hrdata[0:15]</obj_property>
       <obj_property name="ObjectShortName">hrdata[0:15]</obj_property>
@@ -64,6 +68,10 @@
    <wvobject fp_name="/stimulus/Mem/state" type="logic">
       <obj_property name="ElementShortName">state</obj_property>
       <obj_property name="ObjectShortName">state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/stimulus/Mem/next_state" type="logic">
+      <obj_property name="ElementShortName">next_state</obj_property>
+      <obj_property name="ObjectShortName">next_state</obj_property>
    </wvobject>
    <wvobject fp_name="/stimulus/Mem/M" type="array">
       <obj_property name="ElementShortName">M[0:199][0:15]</obj_property>

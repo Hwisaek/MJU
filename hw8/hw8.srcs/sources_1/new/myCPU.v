@@ -133,9 +133,9 @@ reg state, next_state;
 parameter S0 = 0, S1 = 1;// S0 = 주소가 255가 아닌 모든 경우  , S1 = ST 인 경우/주소로 255가 들어올 때  
 
 // 상태기
- always @ (state)
+ always @ (*)
     case (state)
-        S0: if(haddr == 8'hff)
+        S0: if(haddr == 8'b11111111)
                 next_state <= S1;
             else
                 next_state <= S0;
