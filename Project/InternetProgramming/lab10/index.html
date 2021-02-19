@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Lab 10</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+</head>
+<body>
+<script>
+    var xml = '';
+    xml += '<friends>';
+    xml += ' <friend>';
+    xml += ' <name>홍길동</name>';
+    xml += ' <language>Ruby</language>';
+    xml += ' </friend>';
+    xml += ' <friend>';
+    xml += ' <name>김초록</name>';
+    xml += ' <language>Python</language>';
+    xml += ' </friend>';
+    xml += ' <friend>';
+    xml += ' <name>윤하린</name>';
+    xml += ' <language>C#</language>';
+    xml += ' </friend>';
+    xml += ' <friend>';
+    xml += ' <name>김영웅</name>';
+    xml += ' <language>JAVA</language>';
+    xml += ' </friend>';
+    xml += ' <friend>';
+    xml += ' <name>박영희</name>';
+    xml += ' <language>C</language>';
+    xml += ' </friend>';
+    xml += '</friends>';
+    $(document).ready(function () {
+        var xmlDoc = $.parseXML(xml);
+        var output = '<table border="1"><th>이름</th><th>프로그래밍</th>';
+        $(xmlDoc).find('friend').each(function (index) {
+            output += ' <tr><td>' + $(this).find('name').text() + '</td>';
+            output += '<td>'+  $(this).find('language').text() + '</td></tr>';
+        });
+        output += '</table>';
+        document.body.innerHTML += output;
+
+        $('th').css('background','gray').add('td').filter(function (index) {
+            return index%2==0;
+        }).css('color','blue').end().add('td').filter(function (index) {
+            return index%2==1;
+        }).css('color','green');
+    });
+</script>
+
+</body>
+</html>

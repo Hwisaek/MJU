@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            class shape {
+                constructor(x, y, color) {
+                    this._x = x;
+                    this._y = y;
+                    this._color = color;
+                }
+
+                get x() {
+                    return this._x;
+                };
+
+                set x(input) {
+                    this._x = input;
+                };
+
+                get y() {
+                    return this._y;
+                };
+
+                set y(input) {
+                    this._y = input;
+                };
+
+                get color() {
+                    return this._color;
+                };
+
+                set color(input) {
+                    this._color = input;
+                };
+            }
+
+            class rectangle extends shape {
+                constructor(x, y, w, h, color) {
+                    super(x, y, color);
+                    this._w = w;
+                    this._h = h;
+                }
+
+                get w() {
+                    return this._w;
+                };
+
+                set w(input) {
+                    this._w = input;
+                };
+
+                get h() {
+                    return this._h;
+                };
+
+                set h(input) {
+                    this._h = input;
+                };
+            }
+
+            var angle = new rectangle(10, 10, 100, 50, 'blue');
+
+
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+
+            ctx.beginPath();
+            ctx.fillStyle = angle.color;
+            ctx.fillRect(angle.x, angle.y, angle.w, angle.h);
+
+            angle.x = 100;
+            angle.y = 100;
+            angle.w = 90;
+            angle.h = 100;
+            angle.color = 'red';
+
+            // Blue rectangle
+            ctx.beginPath();
+            ctx.fillStyle = angle.color;
+            ctx.fillRect(angle.x, angle.y, angle.w, angle.h);
+        })
+
+    </script>
+</head>
+<body>
+<canvas id="myCanvas" width="700" height="400" style="border: 3px solid black">
+</canvas>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab11</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <script>
+        var txt = [['1.Hello', '1.world'], ['2.JavaScript', '2.Jquert'], ['3.Python', '3.Matplotlib']];
+
+        $(document).ready(function () {
+
+            $('body').append(function (index) {
+                var item = txt[index];
+                var output = '';
+                output += '<h1>' + item[0] + '</h1>';
+                return output;
+            });
+
+
+            var header = document.createElement('h1');
+            var textNode = document.createTextNode(txt[0][1]);
+            header.appendChild(textNode);
+            document.body.append(header);
+
+            var i = 0;
+
+            setInterval(function () {
+                document.body.style.visibility = "hidden";
+                if (i == 2) {
+                    i = 0;
+                } else {
+                    i++;
+                }
+                $('h1').each(function (index, item) {
+                    $(item).html(txt[i][index]);
+                });
+                setTimeout(function () {
+                    document.body.style.visibility = "visible"
+                }, 500);
+            }, 1000)
+
+            $('<img />', {src: 'https://lms.mju.ac.kr/ilos/images/osms/mju/ko/m_login_logo.png'}).prependTo('body');
+        })
+
+
+    </script>
+</head>
+<body>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('th#t1').mouseover(function () {
+                $('th#t1').css('background','red');
+            });
+            $('th#t1').mouseout(function () {
+                $('th#t1').css('background','blue');
+            });
+
+            $('th#t2').mouseover(function () {
+                $('th#t2').css('background','green');
+            });
+            $('th#t2').mouseout(function () {
+                $('th#t2').css('background','brown');
+            });
+
+            $('th#t3').mouseover(function () {
+                $('th#t3').css('background','pink');
+            });
+            $('th#t3').mouseout(function () {
+                $('th#t3').css('background','yellow');
+            });
+        });
+    </script>
+</head>
+<body>
+<h1>Change background color</h1>
+<h4>Mouse over the sqares!</h4>
+<table>
+    <tr style="height: 100px">
+        <th id="t1" style="background: blue;">blue => red</th>
+        <th id="t2" style="background: brown">brown=>green</th>
+        <th id="t3" style="background: yellow">yellow=>pink</th>
+    </tr>
+</table>
+</body>
+</html>

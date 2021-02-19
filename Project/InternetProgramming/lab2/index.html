@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<P>
+<script>
+    var number=prompt('숫자를 입력하세요','');
+    if(number%5==0){
+        alert('multiple of 5');
+    }
+
+    var name=prompt('이름을 입력하세요','');
+    name = name.indexOf('MJU');
+    if(name!=-1){
+        var score=prompt('성적을 입력하세요','');
+        switch (true) {
+            case score >= 90:
+                alert('A');
+                break;
+            case score >= 80:
+                alert('B');
+                break;
+            case score >= 70:
+                alert('C');
+                break;
+            default:
+                alert('D');
+                break;
+        }
+    }else{
+        alert('No exists student');
+    }
+    var num1=prompt('첫 번째 숫자를 입력하세요','');
+    var num2=prompt('두 번째 숫자를 입력하세요','');
+    num1=Number(num1);
+    num2=Number(num2);
+    alert(`두 값을 더한 값: ${num1+num2}, 두 값을 곱한 값:${num1*num2}`);
+</script>
+</P>
+
+</body>
+</html>

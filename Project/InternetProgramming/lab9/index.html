@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Lab 9</title>
+    <meta charset="UTF-8">
+    <style>
+        /*짝수행 회색바탕*/
+        .eventr {
+            background: gray;
+        }
+        /*최상단부분 노랑바탕*/
+        .firsttr {
+            background: yellow;
+        }
+        /*두번째 열 빨간색*/
+        .oddtd {
+            color: red;
+        }
+
+        /*홀수행 서로 다른 색*/
+        .odd0 {
+            color: hotpink;
+        }
+        .odd1 {
+            color: blue;
+        }
+        .odd2 {
+            color: lightgreen;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            // 변수 선언
+            var array = [
+                { class: 'Python', semester:'2016-1', grade:'A+'},
+                { class: 'C++', semester: '2016-1', grade: 'B0'},
+                { class: '네트워크', semester: '2017-2', grade: 'B0'},
+                { class: '논리회로', semester: '2017-2', grade: 'C+'},
+                { class: '데이터베이스', semester: '2018-1', grade: 'B+'}
+            ]
+
+            // html에 출력할 변수 선언
+            var output = '<table><tr><th>수강과목</th><th>수강학기</th><th>학점</th></tr>';
+
+            // $.each() 메서드 사용
+            $.each(array, function (index, item) {
+                output += '<tr><td>'+item.class+'</td><td>'+item.semester+'</td><td>'+item.grade+'</td></tr>';
+            })
+            output += '</table>';
+            // body 부분에 적용
+            document.body.innerHTML += output;
+
+            // each, addclass 사용
+
+            // 짝수행 회색바탕
+            $('tr:even').each(function (index, item) {
+                $(item).addClass('eventr');
+            })
+            // 홀수행 서로 다른 색
+            $('tr:nth-child(2n)').each(function (index, item) {
+                $(item).addClass('odd'+index);
+            })
+            // 두 번째 열 빨간색
+            $('td:nth-child(3n+2)').each(function (index, item) {
+                $(item).addClass('oddtd');
+            })
+            // 가장 윗부분 노란색
+            $('tr:first').each(function (index, item) {
+                $(item).addClass('firsttr');
+            })
+        })
+    </script>
+</head>
+<body>
+</body>
+</html>
