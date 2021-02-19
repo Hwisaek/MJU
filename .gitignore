@@ -1,3 +1,7 @@
 /*
 !/.gitignore
-!Lecture/CapstoneDesign1/
+!/Lecture/
+/Lecture/*
+!/Lecture/CapstoneDesign1/
+/Lecture/CapstoneDesign1/*
+!/Lecture/CapstoneDesign1/Project/
