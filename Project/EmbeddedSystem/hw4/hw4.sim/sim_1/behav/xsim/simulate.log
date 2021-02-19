@@ -1,0 +1,42 @@
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+                   0 clear = 0, count_enable = 1, --- Q = 0000
+
+                  40 clear = 1, count_enable = 1, --- Q = 0000
+
+                  60 clear = 1, count_enable = 1, --- Q = 0001
+
+                  80 clear = 1, count_enable = 1, --- Q = 0010
+
+                 100 clear = 1, count_enable = 1, --- Q = 0011
+
+                 120 clear = 1, count_enable = 1, --- Q = 0100
+
+                 140 clear = 1, count_enable = 1, --- Q = 0101
+
+                 160 clear = 1, count_enable = 1, --- Q = 0110
+
+                 180 clear = 1, count_enable = 1, --- Q = 0111
+
+                 200 clear = 1, count_enable = 1, --- Q = 1000
+
+                 220 clear = 1, count_enable = 1, --- Q = 1001
+
+                 240 clear = 1, count_enable = 1, --- Q = 1010
+
+                 260 clear = 1, count_enable = 1, --- Q = 1011
+
+                 280 clear = 1, count_enable = 1, --- Q = 1100
+
+                 300 clear = 1, count_enable = 1, --- Q = 1101
+
+                 320 clear = 1, count_enable = 1, --- Q = 1110
+
+                 340 clear = 1, count_enable = 1, --- Q = 1111
+
+                 360 clear = 1, count_enable = 1, --- Q = 0000
+
+                 380 clear = 1, count_enable = 1, --- Q = 0001
+
+                 400 clear = 1, count_enable = 0, --- Q = 0010
+
