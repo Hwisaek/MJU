@@ -1,6 +1,3 @@
-*/
-Lecture/
-*.yml
 *
 !.gitignore
-Lecture/CapstoneDesign1/Codes/face-recognition-login-system-master-pika/_config.yml
+!Lecture/CapstoneDesign1/Project/*
