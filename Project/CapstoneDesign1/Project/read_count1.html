@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+  <script type="text/javascript">
+    // 텍스트 읽어오기
+    timer = setInterval(function() {
+      $("#new-nav").load("count_mouth.txt");
+    }, 100);
+    // 8초후 창 닫기
+    setTimeout(function() {
+      window.close();
+    }, 8000);
+  </script>
+</head>
+
+<body>
+  <!-- document 에 txt 출력 -->
+  <b>입 연 시간</b>
+  <ol id="new-nav"></ol>
+</body>
+
+</html>
